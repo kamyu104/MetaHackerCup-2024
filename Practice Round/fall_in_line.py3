@@ -14,11 +14,11 @@ def ccw(a, b, c):
 
 def fall_in_line():
     N = int(input())
-    points = [list(map(int, input().split())) for _ in range(N)]
+    P = [list(map(int, input().split())) for _ in range(N)]
     result = 0
     for _ in range(K):
         i, j = sample(range(N), 2)
-        result = max(result, sum(ccw(points[i], points[j], points[k]) == 0 for k in range(N)))
+        result = max(result, sum(ccw(P[i], P[j], P[k]) == 0 for k in range(N)))
     return N-result
 
 seed(0)
