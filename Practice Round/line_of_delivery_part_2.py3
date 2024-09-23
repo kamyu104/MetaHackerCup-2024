@@ -1,6 +1,6 @@
 # Copyright (c) 2024 kamyu. All rights reserved.
 #
-# Meta Hacker Cup 2024 Practice Round - Problem D1. Line of Delivery (Part 2)
+# Meta Hacker Cup 2024 Practice Round - Problem D2. Line of Delivery (Part 2)
 # https://www.facebook.com/codingcompetitions/hacker-cup/2024/practice-round/problems/D2
 #
 # Time:  O(NlogN)
