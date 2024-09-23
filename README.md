@@ -15,6 +15,6 @@
 |---| ----- | -------- | ---- | ----- | ---------- | --- | ---- |
 |A| [Walk the Line](https://www.facebook.com/codingcompetitions/hacker-cup/2024/practice-round/problems/A)| [Python3](./Practice%20Round/walk_the_line.py3) | _O(1)_ | _O(1)_ | Easy | | Greedy |
 |B| [Line by Line](https://www.facebook.com/codingcompetitions/hacker-cup/2024/practice-round/problems/B)| [Python3](./Practice%20Round/line_by_line.py3) | _O(1)_ | _O(1)_ | Easy | | Math |
-|C| [Fall in Line](https://www.facebook.com/codingcompetitions/hacker-cup/2024/practice-round/problems/C)| [Python3](./Practice%20Round/fall_in_line.py3) | _O(K * N)_ | _O(1)_ | Medium | | Probabilistic Algorithm |
+|C| [Fall in Line](https://www.facebook.com/codingcompetitions/hacker-cup/2024/practice-round/problems/C)| [Python3](./Practice%20Round/fall_in_line.py3) | _O(K * N)_ | _O(1)_ | Medium | | Randomized Algorithm |
 |D1| [Line of Delivery (Part 1)](https://www.facebook.com/codingcompetitions/hacker-cup/2024/practice-round/problems/D1)| [Python3](./Practice%20Round/line_of_delivery_part_1.py3) | _O(NlogN)_ | _O(1)_ | Medium | | Sort |
 |D2| [Line of Delivery (Part 2)](https://www.facebook.com/codingcompetitions/hacker-cup/2024/practice-round/problems/D2)| [Python3](./Practice%20Round/line_of_delivery_part_2.py3) | _O(NlogN)_ | _O(1)_ | Hard | | Sort |
