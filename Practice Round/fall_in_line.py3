@@ -9,14 +9,8 @@
 
 from random import sample, seed
 
-def gcd(a, b):
-    while b:
-        a, b = b, a%b
-    return a
-
-def slope(dy, dx):
-    g = gcd(dy, dx)
-    return (dy//g, dx//g)
+def ccw(a, b, c):
+    return (b[0]-a[0])*(c[1]-a[1]) - (b[1]-a[1])*(c[0]-a[0])
 
 def fall_in_line():
     N = int(input())
@@ -24,8 +18,7 @@ def fall_in_line():
     result = 0
     for _ in range(K):
         i, j = sample(range(N), 2)
-        s = slope(points[j][1]-points[i][1], points[j][0]-points[i][0])
-        result = max(result, sum(k in (i, j) or slope(points[k][1]-points[i][1], points[k][0]-points[i][0]) == s for k in range(N)))
+        result = max(result, sum(ccw(points[i], points[j], points[k]) == 0 for k in range(N)))
     return N-result
 
 seed(0)
