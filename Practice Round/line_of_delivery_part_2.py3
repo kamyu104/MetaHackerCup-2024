@@ -14,7 +14,7 @@ def line_of_delivery_part_2():
         E[i] += i
     E.sort()
     for i in range(N):
-        E[-1-i] -= i
+        E[~i] -= i
     result = min((abs(E[i]-G), N-i) for i in range(N))
     return "%d %d" % (result[1], result[0])
 
