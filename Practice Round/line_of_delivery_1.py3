@@ -10,7 +10,6 @@
 def line_of_delivery_1():
     N, G = list(map(int, input().split()))
     a = [int(input()) for _ in range(N)]
-    result = (float("inf"), float("inf"))
     a.sort()
     result = min((abs(a[i]-G), N-i) for i in reversed(range(N)))
     return "%d %d" % (result[1], result[0])
