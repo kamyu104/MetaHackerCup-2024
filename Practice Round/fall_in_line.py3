@@ -22,6 +22,6 @@ def fall_in_line():
     return N-result
 
 seed(0)
-K = 10
+K = 40
 for case in range(int(input())):
     print('Case #%d: %s' % (case+1, fall_in_line()))
