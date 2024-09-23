@@ -9,8 +9,8 @@
 
 def walk_the_line():
     N, K = list(map(int, input().split()))
-    a = [int(input()) for _ in range(N)]
-    return "YES" if min(a)*max((N-1)+(N-2), 1) <= K else "NO"
+    S = [int(input()) for _ in range(N)]
+    return "YES" if min(S)*max((N-1)+(N-2), 1) <= K else "NO"
 
 for case in range(int(input())):
     print('Case #%d: %s' % (case+1, walk_the_line()))
