@@ -1,7 +1,7 @@
 # Copyright (c) 2024 kamyu. All rights reserved.
 #
 # Meta Hacker Cup 2024 Round 1 - Problem A. Subsonic Subway
-# https://www.facebook.com/codingcompetitions/hacker-cup/2024/round1/problems/A
+# https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-1/problems/A
 #
 # Time:  O(N)
 # Space: O(1)

@@ -1,7 +1,7 @@
 # Copyright (c) 2024 kamyu. All rights reserved.
 #
 # Meta Hacker Cup 2024 Round 1 - Problem B. Prime Subtractorization
-# https://www.facebook.com/codingcompetitions/hacker-cup/2024/round1/problems/B
+# https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-1/problems/B
 #
 # Time:  precompute: O(MAX_N)
 #        runtime:    O(1)
