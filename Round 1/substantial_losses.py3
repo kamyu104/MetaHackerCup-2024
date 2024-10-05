@@ -1,7 +1,7 @@
 # Copyright (c) 2024 kamyu. All rights reserved.
 #
 # Meta Hacker Cup 2024 Round 1 - Problem C. Substantial Losses
-# https://www.facebook.com/codingcompetitions/hacker-cup/2024/round1/problems/C
+# https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-1/problems/C
 #
 # Time:  O(1)
 # Space: O(1)
