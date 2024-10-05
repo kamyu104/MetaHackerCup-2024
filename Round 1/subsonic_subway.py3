@@ -8,16 +8,17 @@
 #
 
 def subsonic_subway():
-    def check(i, a, j, b):
-        return i*b <= j*a
-
     N = int(input())
     A_B = [list(map(int, input().split())) for _ in range(N)]
-    x, y = 0, 1
-    for i, (_, b) in enumerate(A_B, 1):
-        if not check(i, b, x, y):
-            x, y = i, b
-    return x/y if all(check(x, y, i, a) for i, (a, _) in enumerate(A_B, 1)) else -1
+    a, b = 0, 1
+    for i, (_, x) in enumerate(A_B, 1):
+        if a*x < i*b:
+            a, b = i, x
+    c, d = 1, 0
+    for i, (x, _) in enumerate(A_B, 1):
+        if c*x > i*d:
+            c, d = i, x
+    return a/b if a*d <= c*b else -1
 
 for case in range(int(input())):
     print('Case #%d: %s' % (case+1, subsonic_subway()))
