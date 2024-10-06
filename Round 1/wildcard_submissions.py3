@@ -1,6 +1,6 @@
 # Copyright (c) 2024 kamyu. All rights reserved.
 #
-# Meta Hacker Cup 2024 Round 1 - Problem E. Wildcard
+# Meta Hacker Cup 2024 Round 1 - Problem E. Wildcard Submissions
 # https:#www.facebook.com/codingcompetitions/hacker-cup/2024/round-1/problems/E
 #
 # Time:  O(N * L * S), L = max(len(s) for s in S), S = len(dp), pass in PyPy3 but Python3
@@ -9,7 +9,7 @@
 
 from collections import defaultdict
 
-def wildcard():
+def wildcard_submissions():
     def merge(a, b):
         a = list(a)
         l = min(len(a), len(b))
@@ -43,4 +43,4 @@ def wildcard():
 
 MOD = 998244353
 for case in range(int(input())):
-    print('Case #%d: %s' % (case+1, wildcard()))
+    print('Case #%d: %s' % (case+1, wildcard_submissions()))
