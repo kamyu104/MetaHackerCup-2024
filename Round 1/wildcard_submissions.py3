@@ -16,12 +16,12 @@ def wildcard_submissions():
         for i in range(l):
             if a[i] == b[i] or b[i] == '?':
                 continue
-            if a[i] == '?':
-                a[i] = b[i]
-                continue
-            l = i
-            break
-        return "".join(a[:l])
+            if a[i] != '?':
+                break
+            a[i] = b[i]
+        else:
+            i = l
+        return "".join(a[:i])
 
     N = int(input())
     S = [input() for _ in range(N)]
