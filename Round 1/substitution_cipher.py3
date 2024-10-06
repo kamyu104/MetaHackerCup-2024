@@ -43,7 +43,7 @@ def substitution_cipher():
             dp[(i+1)%3] = 0
             if E[i] != '0':
                 dp[(i+1)%3] = (dp[(i+1)%3]+dp[i%3])%MOD
-            if i-1 >= 0 and "10" <= E[i-1]+E[i] <= "26":
+            if i-1 >= 0 and "10" <= "".join(E[i-1:i+1]) <= "26":
                 dp[(i+1)%3] = (dp[(i+1)%3]+dp[(i-1)%3])%MOD
         return dp[len(E)%3]
 
