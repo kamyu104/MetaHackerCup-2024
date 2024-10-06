@@ -12,22 +12,20 @@ def substitution_cipher():
         for i in reversed(range(len(E))):
             if E[i] != '?':
                 continue
-            if i+1 < len(E) and E[i+1] == '0':
-                E[i] = chr(ord('2')-K%2)
-                K //= 2
-            elif i+1 < len(E) and E[i+1] == '?':
+            if i+1 == len(E) or (i+2 < len(E) and E[i+2] == '0'):
+                if i-1 < 0 or E[i-1] not in ('?', '2'):
+                    E[i] = chr(ord('9')-K%9)  # 1-9
+                    K //= 9
+                elif E[i-1] == '2':
+                    E[i] = chr(ord('6')-K%6)  # 1-6
+                    K //= 6
+            elif E[i+1] == '?':
                 q, r = divmod(26-K%15-int((26-K%15) <= 20), 10)  # 11-19, 21-26
                 E[i], E[i+1] = chr(ord('0')+q), chr(ord('0')+r)
                 K //= 15
-            elif i+1 == len(E) or (i+2 < len(E) and E[i+2] == '0'):
-                if i-1 >= 0 and E[i-1] == '?':
-                    pass
-                elif i-1 >= 0 and E[i-1] == '2':
-                    E[i] = chr(ord('6')-K%6)  # 1-6
-                    K //= 6
-                else:
-                    E[i] = chr(ord('9')-K%9)  # 1-9
-                    K //= 9
+            elif E[i+1] == '0':
+                E[i] = chr(ord('2')-K%2)
+                K //= 2
             elif '1' <= E[i+1] and E[i+1] <= '6':
                 E[i] = chr(ord('2')-K%2)  # 1-2
                 K //= 2
