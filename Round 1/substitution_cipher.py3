@@ -9,6 +9,7 @@
 
 def substitution_cipher():
     def kth_largest(K):
+        K -= 1
         for i in reversed(range(len(E))):
             if E[i] != '?':
                 continue
@@ -48,7 +49,7 @@ def substitution_cipher():
         return dp[len(E)%3]
 
     E, K = input().split()
-    E, K = list(E), int(K)-1
+    E, K = list(E), int(K)
     kth_largest(K)
     return f"{''.join(E)} {count()}"
 
