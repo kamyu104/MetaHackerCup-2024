@@ -18,12 +18,12 @@ def substitution_cipher():
                     cnt = 9-1+1  # 1-9
                     E[i] = chr(ord('9')-K%cnt)
                 elif E[i-1] == '?':
-                    cnt = 1-1+1  # #
-                    E[i] = '#'
+                    cnt = 1-1+1  # *
+                    E[i] = '*'
                 elif E[i-1] == '2':
                     cnt = 6-1+1  # 1-6
                     E[i] = chr(ord('6')-K%cnt)
-            elif E[i+1] == '#':
+            elif E[i+1] == '*':
                 cnt = (26-11+1)-1  # 11-19, 21-26
                 q, r = divmod(26-K%cnt-int((26-K%cnt) <= 20), 10)
                 E[i], E[i+1] = chr(ord('0')+q), chr(ord('0')+r)
