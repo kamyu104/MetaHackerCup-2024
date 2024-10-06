@@ -28,6 +28,7 @@ def substitution_cipher():
                 K //= 2
             elif '7' <= E[i+1] <= '9':
                 E[i] = '1'  # 1
+                K //= 1
             else:
                 assert(False)
         assert(K == 0)
