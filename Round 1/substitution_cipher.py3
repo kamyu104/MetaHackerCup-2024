@@ -28,7 +28,7 @@ def substitution_cipher():
                 q, r = divmod(26-K%cnt-int((26-K%cnt) <= 20), 10)
                 E[i], E[i+1] = chr(ord('0')+q), chr(ord('0')+r)
             elif '0' <= E[i+1] <= '6':
-                cnt = 2  # 1-2
+                cnt = 2-1+1  # 1-2
                 E[i] = chr(ord('2')-K%cnt)
             elif '7' <= E[i+1] <= '9':
                 cnt = 1-1+1  # 1
