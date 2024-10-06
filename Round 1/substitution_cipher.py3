@@ -18,7 +18,7 @@ def substitution_cipher():
                     cnt = 9-1+1  # 1-9
                     E[i] = chr(ord('9')-K%cnt)
                 elif E[i-1] == '?':
-                    cnt = 1-1+1  # *
+                    cnt = 1  # *
                     E[i] = '*'
                 elif E[i-1] == '2':
                     cnt = 6-1+1  # 1-6
@@ -31,7 +31,7 @@ def substitution_cipher():
                 cnt = 2-1+1  # 1-2
                 E[i] = chr(ord('2')-K%cnt)
             elif '7' <= E[i+1] <= '9':
-                cnt = 1-1+1  # 1
+                cnt = 1  # 1
                 E[i] = '1'
             K //= cnt
         assert(K == 0)
