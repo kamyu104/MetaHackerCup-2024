@@ -18,7 +18,7 @@ def substitution_cipher():
                     cnt = 9-1+1  # 1-9
                     E[i] = chr(ord('9')-K%cnt)
                 elif E[i-1] == '?':
-                    cnt = 1-1+1  # X
+                    cnt = 1-1+1  # #
                     E[i] = '#'
                 elif E[i-1] == '2':
                     cnt = 6-1+1  # 1-6
