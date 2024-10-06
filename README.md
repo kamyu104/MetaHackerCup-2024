@@ -27,4 +27,4 @@
 |B| [Prime Subtractorization](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-1/problems/B)| [Python3](./Round%201/prime_subtractorization.py3) | precompute: _O(MAX_N)_<br>runtime: _O(1)_ | _O(MAX_N)_ | Medium | | Number Theory, `Linear Sieve of Eratosthenes`, DP |
 |C| [Substantial Losses](https://www.facebook.com/codingcompetitions/hacker-cup/2024/practice-round/problems/C)| [Python3](./Round%201/substantial_losses.py3) | _O(1)_ | _O(1)_ | Medium | | Expected Value |
 |D| [Substitution Cipher](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-1/problems/D)| [Python3](./Round%201/substitution_cipher.py3) | _O(N)_ | _O(1)_ | Hard | | Greedy, DP |
-|E| [Wildcard Submissions](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-1/problems/E)| | | | Hard | | |
+|E| [Wildcard Submissions](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-1/problems/E)| [PyPy3](./Round%201/wildcard.py3) | _O(N * L * S)_ | _O(L * S)_ | Hard | | DP |
