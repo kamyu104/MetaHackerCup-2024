@@ -40,14 +40,12 @@ def substitution_cipher():
     def count():
         dp = [0]*3
         dp[0] = 1
-        for i in range(len(E)):
-            if E[i] != '0':
-                dp[(i+1)%3] = (dp[(i+1)%3]+dp[i%3])%MOD
-            if i+1 == len(E):
-                continue
-            if (E[i] == '1' and '0' <= E[i+1] <= '9') or E[i] == '2' and '0' <= E[i+1] <= '6':
-                dp[(i+2)%3] = (dp[(i+2)%3]+dp[i%3])%MOD
+        for i in range(1, len(E)+1):
             dp[i%3] = 0
+            if E[i-1] != '0':
+                dp[i%3] = (dp[i%3]+dp[(i-1)%3])%MOD
+            if i-2 >= 0 and ((E[i-2] == '1' and '0' <= E[i-1] <= '9') or E[i-2] == '2' and '0' <= E[i-1] <= '6'):
+                dp[i%3] = (dp[i%3]+dp[(i-2)%3])%MOD
         return dp[len(E)%3]
 
     E, K = input().split()
