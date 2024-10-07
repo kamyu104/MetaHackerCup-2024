@@ -33,12 +33,12 @@ def wildcard_submissions():
         dp[s] = (dp[s]+1)%MOD
     result = 0
     for s, c in dp.items():
-        result = (result+c)%MOD
+        #result = (result+c)%MOD
         for i in range(len(s)):
             if s[i] == '?':
                 c = (c*26)%MOD
             result = (result+c)%MOD
-    return result
+    return (result+1)%MOD
 
 MOD = 998244353
 for case in range(int(input())):
