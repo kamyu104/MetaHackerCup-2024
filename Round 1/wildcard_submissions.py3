@@ -16,7 +16,7 @@ def wildcard_submissions():
         for i in range(l):
             if '?' != a[i] != b[i] != '?':
                 break
-            if a[i] == '?':
+            if c[i] == '?':
                 c[i] = b[i]
         else:
             i = l
@@ -33,7 +33,6 @@ def wildcard_submissions():
         dp[s] = (dp[s]+1)%MOD
     result = 0
     for s, c in dp.items():
-        #result = (result+c)%MOD
         for i in range(len(s)):
             if s[i] == '?':
                 c = (c*26)%MOD
