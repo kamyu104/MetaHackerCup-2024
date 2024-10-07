@@ -31,13 +31,13 @@ def wildcard_submissions():
             x = longest_common_prefix(t, s)
             dp[x] = (dp[x]-c)%MOD
         dp[s] = (dp[s]+1)%MOD
-    result = 0
+    result = 1
     for s, c in dp.items():
         for i in range(len(s)):
             if s[i] == '?':
                 c = (c*26)%MOD
             result = (result+c)%MOD
-    return (result+1)%MOD
+    return result
 
 MOD = 998244353
 for case in range(int(input())):
