@@ -1,7 +1,7 @@
 # Copyright (c) 2024 kamyu. All rights reserved.
 #
 # Meta Hacker Cup 2024 Round 1 - Problem E. Wildcard Submissions
-# https:#www.facebook.com/codingcompetitions/hacker-cup/2024/round-1/problems/E
+# https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-1/problems/E
 #
 # Time:  O(N * L * S), L = max(len(s) for s in S), S = len(dp), pass in PyPy3 but Python3
 # Space: O(L * S)
