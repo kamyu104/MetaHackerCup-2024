@@ -11,15 +11,17 @@ from collections import defaultdict
 
 def wildcard_submissions():
     def longest_common_prefix(a, b):
+        if len(a) > len(b):
+            a, b = b, a
         c = list(a)
-        l = min(len(a), len(b))
-        for i in range(l):
-            if '?' != a[i] != b[i] != '?':
+        for i in range(len(a)):
+            if a[i] == b[i] or b[i] == '?':
+                continue
+            if c[i] != '?':
                 break
-            if c[i] == '?':
-                c[i] = b[i]
+            c[i] = b[i]
         else:
-            i = l
+            i = len(a)
         return "".join(c[:i])
 
     N = int(input())
