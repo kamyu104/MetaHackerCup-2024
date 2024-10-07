@@ -10,18 +10,17 @@
 from collections import defaultdict
 
 def wildcard_submissions():
-    def merge(a, b):
-        a = list(a)
+    def longest_common_prefix(a, b):
+        c = list(a)
         l = min(len(a), len(b))
         for i in range(l):
-            if a[i] == b[i] or b[i] == '?':
-                continue
-            if a[i] != '?':
+            if '?' != a[i] != b[i] != '?':
                 break
-            a[i] = b[i]
+            if a[i] == '?':
+                c[i] = b[i]
         else:
             i = l
-        return "".join(a[:i])
+        return "".join(c[:i])
 
     N = int(input())
     S = [input() for _ in range(N)]
@@ -29,7 +28,7 @@ def wildcard_submissions():
     dp = defaultdict(int)
     for s in S:
         for t, c in list(dp.items()):
-            x = merge(t, s)
+            x = longest_common_prefix(t, s)
             dp[x] = (dp[x]-c)%MOD
         dp[s] = (dp[s]+1)%MOD
     result = 0
