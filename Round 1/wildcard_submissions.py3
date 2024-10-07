@@ -31,7 +31,8 @@ def wildcard_submissions():
     for s in S:
         for t, c in list(dp.items()):
             x = longest_common_prefix(t, s)
-            dp[x] = (dp[x]-c)%MOD
+            if x:
+                dp[x] = (dp[x]-c)%MOD
         dp[s] = (dp[s]+1)%MOD
     result = 1
     for s, c in dp.items():
