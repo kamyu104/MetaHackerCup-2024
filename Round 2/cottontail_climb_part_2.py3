@@ -20,7 +20,7 @@ def backtracking(l, curr):
          return
     for i in range(curr%10 if curr else 1, 9+1):
         curr = curr*10+i
-        HALF_CANDIDATES[L-l+1].append(curr)
+        HALF_CANDIDATES[-l].append(curr)
         backtracking(l-1, curr)
         curr //= 10
 
