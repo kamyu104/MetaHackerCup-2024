@@ -1,4 +1,4 @@
-# [MetaHackerCup-2024](https://www.facebook.com/codingcompetitions/hacker-cup) ![Language](https://img.shields.io/badge/language-Python3-orange.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![Progress](https://img.shields.io/badge/progress-14%20%2F%215-ff69b4.svg) ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=kamyu104.metahackercup.2024)
+# [MetaHackerCup-2024](https://www.facebook.com/codingcompetitions/hacker-cup) ![Language](https://img.shields.io/badge/language-Python3-orange.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![Progress](https://img.shields.io/badge/progress-15%20%2F%215-ff69b4.svg) ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=kamyu104.metahackercup.2024)
 
 * Python3 solutions of Meta Hacker Cup 2024. Solution begins with `*` means it will get TLE in the largest data set.
 * Total computation amount > `10^8`, which is not friendly for Python3 to solve in 5 ~ 15 seconds. A `6-minute` timer is set for uploading the result this year.
@@ -37,4 +37,4 @@
 |A2| [Cottontail Climb (Part 2)](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/A2)| [PyPy3](./Round%202/cottontail_climb_part_2.py3) | precompute: _O(17 * 73025424)_<br>runtime: _O(73025424)_ | _O(73025424)_ | Easy | | Precomputation, Backtracking |
 |B| [Four in a Burrow](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/B)| [PyPy3](./Round%202/four_in_a_burrow.py3) |  _O((R * C) * (R + 1)^C)_ | _O(C * (R + 1)^C)_ | Medium | | BFS |
 |C| [Bunny Hopscotch](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/C)| [PyPy3](./Round%202/bunny_hopscotch.py3) |  _O((R * C * log(min(R, C))) * log(max(R, C)))_ | _O(R * C)_ | Medium | | Binary Search, Two Pointers, Sliding Window, BIT, Fenwick Tree |
-|D| [Substitution Cipher](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/D)|  | | | Hard | | |
+|D| [Substitution Cipher](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/D)| [Python3](./Round%202/splitting_hares.py3) | _O(NlogN + N * MAX_W + MAX_W^2)_ | _O(N * MAX_W)_ | Hard | | Greedy, DP, Backtracing |

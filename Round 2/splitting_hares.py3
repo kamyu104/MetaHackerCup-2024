@@ -74,7 +74,7 @@ def splitting_hares():
                 mn = float("inf")
                 best = None
                 for idx, (_, _, right, b, c) in enumerate(dp[i]):
-                    if right >= x[0]:
+                    if i and right >= x[0]:
                         continue
                     if not i:
                         b, c = float("inf"), x[1]-x[0]
