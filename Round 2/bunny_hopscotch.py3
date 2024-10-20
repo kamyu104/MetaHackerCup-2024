@@ -27,14 +27,14 @@ class BIT(object):  # 0-indexed.
             i -= (i & -i)
         return ret
 
-def binary_search_right(left, right, check):
+def binary_search(left, right, check):
     while left <= right:
         mid = left + (right-left)//2
-        if not check(mid):
+        if check(mid):
             right = mid-1
         else:
             left = mid+1
-    return right
+    return left
 
 def bunny_hopscotch():
     def check(d):
@@ -42,10 +42,10 @@ def bunny_hopscotch():
         for group in groups:
             left = right = 0
             for i, j in group:
-                l1 = max(i-(d-1), 0)
-                r1 = min(i+(d-1), max(R, C)-1)
-                l2 = max(j-(d-1), 0)
-                r2 = min(j+(d-1), min(R, C)-1)
+                l1 = max(i-d, 0)
+                r1 = min(i+d, max(R, C)-1)
+                l2 = max(j-d, 0)
+                r2 = min(j+d, min(R, C)-1)
                 while right < len(group) and group[right][0] <= r1:
                     bit.add(group[right][1], 1)
                     right += 1
@@ -56,7 +56,7 @@ def bunny_hopscotch():
             while left < right:
                 bit.add(group[left][1], -1)
                 left += 1
-        return result < K
+        return result >= K
 
     R, C, K = list(map(int, input().split()))
     grid = [list(map(lambda x: int(x)-1, input().split())) for _ in range(R)]
@@ -65,7 +65,7 @@ def bunny_hopscotch():
         for j in range(min(R, C)):
             groups[grid[i][j] if R > C else grid[j][i]].append((i, j))
     bit = BIT(min(R, C))
-    return binary_search_right(1, max(R, C)-1, check)
+    return binary_search(1, max(R, C)-1, check)
 
 for case in range(int(input())):
     print('Case #%d: %s' % (case+1, bunny_hopscotch()))
