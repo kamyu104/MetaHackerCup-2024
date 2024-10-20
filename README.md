@@ -34,7 +34,7 @@
 | # | Title | Solution | Time | Space | Difficulty | Tag | Note |
 |---| ----- | -------- | ---- | ----- | ---------- | --- | ---- |
 |A1| [Cottontail Climb (Part 1)](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/A1)| [Python3](./Round%202/cottontail_climb_part_1.py3) | _O(285)_ | _O(45)_ | Easy | | Precomputation |
-|A2| [Cottontail Climb (Part 2)](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/A2)| [PyPy3](./Round%202/cottontail_climb_part_1.py3) | precompute: _O(17 * 73025424)_<br>runtime: _O(73025424)_ | _O(73025424)_ | Easy | | Precomputation, Backtracking |
+|A2| [Cottontail Climb (Part 2)](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/A2)| [PyPy3](./Round%202/cottontail_climb_part_2.py3) | precompute: _O(17 * 73025424)_<br>runtime: _O(73025424)_ | _O(73025424)_ | Easy | | Precomputation, Backtracking |
 |B| [Four in a Burrow](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/B)| [PyPy3](./Round%202/four_in_a_burrow.py3) |  _O((R * C) * (R + 1)^C)_ | _O(C * (R + 1)^C)_ | Medium | | BFS |
 |C| [Bunny Hopscotch](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/C)| [PyPy3](./Round%202/bunny_hopscotch.py3) |  _O((R * C) * (R + 1)^C)_ | _O(C * (R + 1)^C)_ | Medium | | Binary Search, Two Pointers, Sliding Window, BIT, Fenwick Tree |
 |D| [Substitution Cipher](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/D)|  | | | Hard | | |
