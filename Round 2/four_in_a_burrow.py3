@@ -10,10 +10,11 @@
 #
 
 def four_in_a_burrow():
-    def bfs(init, d):
-        target = 'C' if d == 1 else 'F'
+    def bfs(d):
+        init = (R,)*C if d == 1 else (0,)*C
         lookup = {init}
         q = [init]
+        target = 'C' if d == 1 else 'F'
         while q:
             new_q = []
             for state in q:
@@ -50,8 +51,7 @@ def four_in_a_burrow():
 
     _ = input()
     grid = [list(input()) for _ in range(R)]
-    lookup1 = bfs((R,)*C, 1)
-    lookup2 = bfs((0,)*C, -1)
+    lookup1, lookup2 = bfs(1), bfs(-1)
     has_C = has_F = False
     if len(lookup1) > len(lookup2):
         lookup1, lookup2 = lookup2, lookup1
