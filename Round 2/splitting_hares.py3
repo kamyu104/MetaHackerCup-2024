@@ -140,6 +140,5 @@ def splitting_hares():
 
 L = 500
 MAX_W = 10000
-S = 2*2+1
 for case in range(int(input())):
     print('Case #%d: %s' % (case+1, splitting_hares()))
