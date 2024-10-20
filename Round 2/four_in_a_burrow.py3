@@ -10,38 +10,19 @@
 #
 
 def four_in_a_burrow():
-    def bfs1():
-        init = (R,)*C
+    def bfs(init, target, d):
         lookup = {init}
         q = [init]
-        target = 'C'
         while q:
             new_q = []
             for state in q:
                 for j in range(C):
-                    if not (state[j]-1 >= 0 and grid[state[j]-1][j] == target and (new_state := tuple(state[i]-int(i == j) for i in range(C))) not in lookup):
+                    if not (0 <= state[j]+d <= R and grid[state[j]+(d if d == -1 else 0)][j] == target and (new_state := tuple(state[i]+(d if i == j else 0) for i in range(C))) not in lookup):
                         continue
                     lookup.add(new_state)
                     new_q.append(new_state)
             q = new_q
             target = 'F' if target == 'C' else 'C'
-        return lookup
-
-    def bfs2():
-        init = (0,)*C
-        lookup = {init}
-        q = [init]
-        target = 'F'
-        while q:
-            new_q = []
-            for state in q:
-                for j in range(C):
-                    if not (state[j]+1 <= R and grid[state[j]][j] == target and (new_state := tuple(state[i]+int(i == j) for i in range(C))) not in lookup):
-                        continue
-                    lookup.add(new_state)
-                    new_q.append(new_state)
-            q = new_q
-            target = 'C' if target == 'F' else 'F'
         return lookup
 
     def build(state):
@@ -68,8 +49,8 @@ def four_in_a_burrow():
 
     _ = input()
     grid = [list(input()) for _ in range(R)]
-    lookup1 = bfs1()
-    lookup2 = bfs2()
+    lookup1 = bfs((R,)*C, 'C', -1)
+    lookup2 = bfs((0,)*C, 'F', 1)
     has_C = has_F = False
     if len(lookup1) > len(lookup2):
         lookup1, lookup2 = lookup2, lookup1
