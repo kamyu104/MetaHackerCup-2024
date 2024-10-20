@@ -3,7 +3,7 @@
 # Meta Hacker Cup 2024 Round 2 - Problem D: Splitting Hares
 # https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/D
 #
-# Time:  O(NlogN + N * MAX_W + MAX_W^2)
+# Time:  O(N * MAX_W + MAX_W^2)
 # Space: O(N * MAX_W)
 #
 
@@ -26,8 +26,6 @@ def splitting_hares():
                 continue
             weight_to_color[W[i]] = C[i]
             color_to_weights[C[i]].append(W[i])
-        for w in color_to_weights.values():
-            w.sort()
         return weight_to_color, color_to_weights
 
     def sort_colors():
@@ -47,6 +45,7 @@ def splitting_hares():
     def find_candidates():
         candidates = {}
         for c in cnt.keys():
+            color_to_weights[c].sort()
             i = total[c]-cnt[c]
             if i == 0:
                 candidates[c] = [color_to_weights[c]]
