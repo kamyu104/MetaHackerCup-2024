@@ -1,7 +1,7 @@
 # Copyright (c) 2024 kamyu. All rights reserved.
 #
 # Meta Hacker Cup 2024 Round 2 - Problem B: Four in a Burrow
-# https:#www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/B
+# https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/B
 #
 # Time:  O((R * C) * (R + 1)^C)
 # Space: O(C * (R + 1)^C)

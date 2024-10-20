@@ -1,7 +1,7 @@
 # Copyright (c) 2024 kamyu. All rights reserved.
 #
 # Meta Hacker Cup 2024 Round 2 - Problem A1: Cottontail Climb (Part 1)
-# https:#www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/A1
+# https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/A1
 #
 # Time:  precompute: O(sum((9-i)*(2*i+1) for i in range(9))) = O(285)
 #        runtime:    O(nCr(9, 2)) = O(45)

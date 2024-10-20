@@ -1,7 +1,7 @@
 # Copyright (c) 2024 kamyu. All rights reserved.
 #
 # Meta Hacker Cup 2024 Round 2 - Problem A2: Cottontail Climb (Part 2)
-# https:#www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/A2
+# https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/A2
 #
 # Time:  precompute: O(17 * 73025424)
 #        runtime:    O(73025424)
