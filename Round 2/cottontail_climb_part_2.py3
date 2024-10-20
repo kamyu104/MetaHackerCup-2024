@@ -12,8 +12,7 @@
 
 def cottontail_climb_part_2():
     A, B, M = list(map(int, input().split()))
-    result = sum(A <= x <= B for x in CANDIDATES if x%M == 0)
-    return result
+    return sum(A <= x <= B for x in CANDIDATES if x%M == 0)
 
 def backtracking(l, curr):
     if l == 0:
