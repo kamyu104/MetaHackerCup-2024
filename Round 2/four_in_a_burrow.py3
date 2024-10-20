@@ -48,11 +48,23 @@ def four_in_a_burrow():
         return [['.' if i < state[j] else grid[i][j] for j in range(C)] for i in range(R)]
 
     def check(new_grid, target):
-        return any((all(i+k < R and new_grid[i+k][j] == new_grid[i][j] == target for k in range(1, L)) or
-                    all(j+k < C and new_grid[i][j+k] == new_grid[i][j] == target for k in range(1, L)) or
-                    all(i+k < R and j+k < C and new_grid[i+k][j+k] == new_grid[i][j] == target for k in range(1, L)) or
-                    all(i+k < R and j-k >= 0 and new_grid[i+k][j-k] == new_grid[i][j] == target for k in range(1, L)))
-                   for i in range(R) for j in range(C))
+        for i in range(R-L+1):
+            for j in range(C):
+                if all(new_grid[i+k][j] == target for k in range(L)):
+                    return True
+        for i in range(R):
+            for j in range(C-L+1):
+                if all(new_grid[i][j+k] == target for k in range(L)):
+                    return True
+        for i in range(R-L+1):
+            for j in range(C-L+1):
+                if all(new_grid[i+k][j+k] == target for k in range(L)):
+                    return True
+        for i in range(R-L+1):
+            for j in range(L-1, C):
+                if all(new_grid[i+k][j-k] == target for k in range(L)):
+                    return True
+        return False
 
     _ = input()
     grid = [list(input()) for _ in range(R)]
