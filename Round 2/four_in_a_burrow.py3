@@ -19,12 +19,7 @@ def four_in_a_burrow():
             new_q = []
             for state in q:
                 for j in range(C):
-                    if state[j]-1 < 0:
-                        continue
-                    if grid[state[j]-1][j] != target:
-                        continue
-                    new_state = tuple(state[i]-int(i == j) for i in range(C))
-                    if new_state in lookup:
+                    if state[j]-1 < 0 or grid[state[j]-1][j] != target or (new_state := tuple(state[i]-int(i == j) for i in range(C))) in lookup:
                         continue
                     lookup.add(new_state)
                     new_q.append(new_state)
@@ -41,12 +36,7 @@ def four_in_a_burrow():
             new_q = []
             for state in q:
                 for j in range(C):
-                    if state[j]+1 > R:
-                        continue
-                    if grid[state[j]][j] != target:
-                        continue
-                    new_state = tuple(state[i]+int(i == j) for i in range(C))
-                    if new_state in lookup:
+                    if state[j]+1 > R or grid[state[j]][j] != target or (new_state := tuple(state[i]+int(i == j) for i in range(C))) in lookup:
                         continue
                     lookup.add(new_state)
                     new_q.append(new_state)
@@ -87,7 +77,6 @@ def four_in_a_burrow():
                     return '?'
     return 'C' if has_C else 'F' if has_F else 0
 
-R, C = 6, 7
-L = 4
+R, C, L = 6, 7, 4
 for case in range(int(input())):
     print('Case #%d: %s' % (case+1, four_in_a_burrow()))
