@@ -17,7 +17,7 @@ def four_in_a_burrow():
             new_q = []
             for state in q:
                 for j in range(C):
-                    if not (0 <= state[j]+d <= R and grid[state[j]+(d if d == -1 else 0)][j] == target and (new_state := tuple(state[i]+(d if i == j else 0) for i in range(C))) not in lookup):
+                    if not (0 <= state[j]-d <= R and grid[state[j]-(d if d == 1 else 0)][j] == target and (new_state := tuple(state[i]-(d if i == j else 0) for i in range(C))) not in lookup):
                         continue
                     lookup.add(new_state)
                     new_q.append(new_state)
@@ -49,8 +49,8 @@ def four_in_a_burrow():
 
     _ = input()
     grid = [list(input()) for _ in range(R)]
-    lookup1 = bfs((R,)*C, 'C', -1)
-    lookup2 = bfs((0,)*C, 'F', 1)
+    lookup1 = bfs((R,)*C, 'C', 1)
+    lookup2 = bfs((0,)*C, 'F', -1)
     has_C = has_F = False
     if len(lookup1) > len(lookup2):
         lookup1, lookup2 = lookup2, lookup1
