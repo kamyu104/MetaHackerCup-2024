@@ -79,7 +79,7 @@ def splitting_hares():
                     if not i:
                         b, c = float("inf"), x[1]-x[0]
                         for k in range(2, len(x)):
-                            a, b, c = b, c, min(b, c)+(x[k]-x[k-1])
+                            b, c = c, min(b, c)+(x[k]-x[k-1])
                     else:
                         a, b, c = b, c, min(b, c)+(x[0]-right)
                         for k in range(1, len(x)):
