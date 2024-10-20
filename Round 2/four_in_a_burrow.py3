@@ -71,6 +71,6 @@ def four_in_a_burrow():
                     return '?'
     return 'C' if has_C else 'F' if has_F else 0
 
-R, C, L = 6, 7, 4
+L, R, C = 4, 6, 7
 for case in range(int(input())):
     print('Case #%d: %s' % (case+1, four_in_a_burrow()))
