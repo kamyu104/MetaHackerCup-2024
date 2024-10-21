@@ -3,8 +3,8 @@
 # Meta Hacker Cup 2024 Round 2 - Problem D: Splitting Hares
 # https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/D
 #
-# Time:  O(N * MAX_W + MAX_W^2)
-# Space: O(N * MAX_W)
+# Time:  O(N + MAX_W^2)
+# Space: O(N + MAX_W)
 #
 
 from collections import defaultdict
