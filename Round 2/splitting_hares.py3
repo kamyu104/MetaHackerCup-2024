@@ -19,7 +19,7 @@ def splitting_hares():
         return cnt, total
 
     def mapping():
-        weight_to_color = [0]*((MAX_W+2)+1)
+        weight_to_color = [0]*((max(W)+2)+1)
         color_to_weights = defaultdict(list)
         for i in range(N):
             if W[i] == -1:
@@ -148,7 +148,6 @@ def splitting_hares():
     # assert(check())
     return f"Yes\n{' '.join(map(str, result))}"
 
-MAX_W = 500
 MAX_R = 10000
 for case in range(int(input())):
     print('Case #%d: %s' % (case+1, splitting_hares()))
