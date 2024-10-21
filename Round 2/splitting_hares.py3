@@ -66,7 +66,7 @@ def splitting_hares():
         return candidates
 
     def find_dp():
-        dp = [(None,)*4]
+        dp = [(None, None, float("inf"), float("inf"))]
         for i, c in enumerate(sorted_colors):
             new_dp = []
             for j, x in enumerate(candidates[c]):
@@ -76,17 +76,10 @@ def splitting_hares():
                     _, k, b, c = prev
                     if not (i == 0 or (right := candidates[sorted_colors[i-1]][k][-1]) < x[0]):
                         continue
-                    if not i:
-                        b, c = float("inf"), x[1]-x[0]
-                        for k in range(2, len(x)):
-                            b, c = c, min(b, c)+(x[k]-x[k-1])
-                    else:
-                        a, b, c = b, c, min(b, c)+(x[0]-right)
-                        for k in range(1, len(x)):
-                            a, b, c = b, c, min(b, c)+(x[k]-x[k-1])
-                        if not ((len(x) == 2 and a <= b) or (len(x) == 3 and a >= b)):
-                            continue
-                    if c >= mn:
+                    a, b, c = b, c, (min(b, c)+(x[0]-right) if i else x[1]-x[0])
+                    for k in range(1 if i else 2, len(x)):
+                        a, b, c = b, c, min(b, c)+(x[k]-x[k-1])
+                    if not (((len(x) == 2 and a <= b) or (len(x) == 3 and a >= b)) and c < mn):
                         continue
                     mn = c
                     best = (prev, j, b, c)
