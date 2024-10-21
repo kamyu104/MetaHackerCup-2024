@@ -66,7 +66,7 @@ def splitting_hares():
         return candidates
 
     def find_dp():
-        dp = [(-1,)*4]
+        dp = [(None,)*4]
         for i, c in enumerate(sorted_colors):
             new_dp = []
             for j, x in enumerate(candidates[c]):
