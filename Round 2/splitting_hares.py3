@@ -99,21 +99,21 @@ def splitting_hares():
         def backtracing():
             partial_unknowns = defaultdict(list)
             curr = dp[0]
-            for i in reversed(range(len(sorted_colors))):
-                curr, j = curr[:2]
-                for x in candidates[sorted_colors[i]][j]:
+            for c in reversed(sorted_colors):
+                curr, i = curr[:2]
+                for x in candidates[c][i]:
                     if not weight_to_color[x]:
-                        partial_unknowns[sorted_colors[i]].append(x)
+                        partial_unknowns[c].append(x)
             return partial_unknowns
 
         def find_full_unknowns():
             idx = MAX_R
             full_unknowns = defaultdict(list)
-            for i, c in total.items():
-                if i in cnt:
+            for c, v in total.items():
+                if c in cnt:
                     continue
-                for _ in range(c):
-                    full_unknowns[i].append(idx)
+                for _ in range(v):
+                    full_unknowns[c].append(idx)
                     idx -= 1
                 idx -= 1
             return full_unknowns
