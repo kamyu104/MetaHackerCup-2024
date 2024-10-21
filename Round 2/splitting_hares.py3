@@ -46,10 +46,10 @@ def splitting_hares():
         candidates = {}
         for c in cnt.keys():
             color_to_weights[c].sort()
-            i = total[c]-cnt[c]
-            if i == 0:
+            remain = total[c]-cnt[c]
+            if remain == 0:
                 candidates[c] = [color_to_weights[c]]
-            elif i == 1:
+            elif remain == 1:
                 if len(color_to_weights[c]) == 1:
                     a = color_to_weights[c][0]
                     candidates[c] = [(a-1, a), (a, a+1)]
@@ -59,7 +59,7 @@ def splitting_hares():
                         candidates[c] = [(a-1, a, b), (a, b, b+1)]
                     else:
                         candidates[c] = [(a, i, b) for i in range(a+1, b)]
-            elif i == 2:
+            elif remain == 2:
                 a = color_to_weights[c][0]
                 candidates[c] = [(a-2, a-1, a), (a-1, a, a+1), (a, a+1, a+2)]
             candidates[c] = [x for x in candidates[c] if x[0] >= 1]
