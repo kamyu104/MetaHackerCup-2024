@@ -19,7 +19,7 @@ def splitting_hares():
         return cnt, total
 
     def mapping():
-        weight_to_color = [0]*((L+2)+1)
+        weight_to_color = [0]*((MAX_W+2)+1)
         color_to_weights = defaultdict(list)
         for i in range(N):
             if W[i] == -1:
@@ -105,7 +105,7 @@ def splitting_hares():
             return partial_unknowns
 
         def find_full_unknowns():
-            idx = MAX_W
+            idx = MAX_R
             full_unknowns = defaultdict(list)
             for i, c in total.items():
                 if i in cnt:
@@ -119,6 +119,16 @@ def splitting_hares():
         partial_unknowns = backtracing()
         full_unknowns = find_full_unknowns()
         return [W[i] if W[i] != -1 else partial_unknowns[C[i]].pop() if C[i] in partial_unknowns else full_unknowns[C[i]].pop() for i in range(N)]
+
+    def check():
+        arr = sorted(result)
+        a, b = float("inf"), arr[1]-arr[0]
+        for i in range(2, N):
+            a, b = b, min(a, b)+(arr[i]-arr[i-1])
+        groups = defaultdict(list)
+        for w, c in zip(result, C):
+            groups[c].append(w)
+        return b == sum(max(x)-min(x) for x in groups.values())
 
     N = int(input())
     W = list(map(int, input().split()))
@@ -135,9 +145,10 @@ def splitting_hares():
     if not dp[-1]:
         return "No"
     result = find_result()
+    # assert(check())
     return f"Yes\n{' '.join(map(str, result))}"
 
-L = 500
-MAX_W = 10000
+MAX_W = 500
+MAX_R = 10000
 for case in range(int(input())):
     print('Case #%d: %s' % (case+1, splitting_hares()))
