@@ -11,22 +11,16 @@ from collections import defaultdict
 
 def splitting_hares():
     def count():
-        cnt, total = defaultdict(int), defaultdict(int)
-        for i in range(N):
-            if W[i] != -1:
-                cnt[C[i]] += 1
-            total[C[i]] += 1
-        return cnt, total
-
-    def mapping():
+        total = defaultdict(int)
         weight_to_color = [0]*((max(W)+2)+1)
         color_to_weights = defaultdict(list)
         for i in range(N):
+            total[C[i]] += 1
             if W[i] == -1:
                 continue
             weight_to_color[W[i]] = C[i]
             color_to_weights[C[i]].append(W[i])
-        return weight_to_color, color_to_weights
+        return total, weight_to_color, color_to_weights
 
     def sort_colors():
         sorted_colors = []
@@ -44,9 +38,9 @@ def splitting_hares():
 
     def find_candidates():
         candidates = {}
-        for c in cnt.keys():
+        for c in color_to_weights.keys():
             color_to_weights[c].sort()
-            remain = total[c]-cnt[c]
+            remain = total[c]-len(color_to_weights[c])
             if remain == 0:
                 candidates[c] = [tuple(color_to_weights[c])]
             elif remain == 1:
@@ -103,7 +97,7 @@ def splitting_hares():
             idx = MAX_R
             full_unknowns = defaultdict(list)
             for c, v in total.items():
-                if c in cnt:
+                if c in color_to_weights:
                     continue
                 for _ in range(v):
                     full_unknowns[c].append(idx)
@@ -128,10 +122,9 @@ def splitting_hares():
     N = int(input())
     W = list(map(int, input().split()))
     C = list(map(int, input().split()))
-    cnt, total = count()
+    total, weight_to_color, color_to_weights = count()
     if any(v > 3 for v in total.values()):
         return "No"
-    weight_to_color, color_to_weights = mapping()
     sorted_colors = sort_colors()
     if sorted_colors is None:
         return "No"
