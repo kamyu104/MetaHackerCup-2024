@@ -84,7 +84,7 @@ def splitting_hares():
                         a, b, c = b, c, min(b, c)+(x[0]-right)
                         for k in range(1, len(x)):
                             a, b, c = b, c, min(b, c)+(x[k]-x[k-1])
-                        if (len(x) == 2 and a > b) or (len(x) == 3 and a < b):
+                        if not ((len(x) == 2 and a <= b) or (len(x) == 3 and a >= b)):
                             continue
                     if c >= mn:
                         continue
