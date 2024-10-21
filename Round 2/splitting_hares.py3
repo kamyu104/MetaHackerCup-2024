@@ -73,7 +73,7 @@ def splitting_hares():
                 mn = float("inf")
                 best = None
                 for prev in dp:
-                    (_, k, b, c) = prev
+                    _, k, b, c = prev
                     if not (i == 0 or (right := candidates[sorted_colors[i-1]][k][-1]) < x[0]):
                         continue
                     if not i:
