@@ -66,13 +66,14 @@ def splitting_hares():
         return candidates
 
     def find_dp():
-        dp = [[] for _ in range(len(sorted_colors)+1)]
-        dp[0] = [(-1,)*4]
+        dp = [(-1,)*4]
         for i, c in enumerate(sorted_colors):
+            new_dp = []
             for j, x in enumerate(candidates[c]):
                 mn = float("inf")
                 best = None
-                for idx, (_, k, b, c) in enumerate(dp[i]):
+                for prev in dp:
+                    (_, k, b, c) = prev
                     if not (i == 0 or (right := candidates[sorted_colors[i-1]][k][-1]) < x[0]):
                         continue
                     if not i:
@@ -88,17 +89,18 @@ def splitting_hares():
                     if c >= mn:
                         continue
                     mn = c
-                    best = (idx, j, b, c)
+                    best = (prev, j, b, c)
                 if best:
-                    dp[i+1].append(best)
+                    new_dp.append(best)
+            dp = new_dp
         return dp
 
     def find_result():
         def backtracing():
             partial_unknowns = defaultdict(list)
-            curr = 0
+            curr = dp[0]
             for i in reversed(range(len(sorted_colors))):
-                curr, j = dp[i+1][curr][:2]
+                curr, j = curr[:2]
                 for x in candidates[sorted_colors[i]][j]:
                     if not weight_to_color[x]:
                         partial_unknowns[sorted_colors[i]].append(x)
@@ -141,8 +143,7 @@ def splitting_hares():
     if sorted_colors is None:
         return "No"
     candidates = find_candidates()
-    dp = find_dp()
-    if not dp[-1]:
+    if not (dp := find_dp()):
         return "No"
     result = find_result()
     # assert(check())
