@@ -37,10 +37,10 @@ def splitting_hares():
                 continue
             prev = c
             if c in lookup:
-                return [], False
+                return None
             lookup.add(c)
             sorted_colors.append(c)
-        return sorted_colors, True
+        return sorted_colors
 
     def find_candidates():
         candidates = {}
@@ -137,8 +137,8 @@ def splitting_hares():
     if any(v > 3 for v in total.values()):
         return "No"
     weight_to_color, color_to_weights = mapping()
-    sorted_colors, ok = sort_colors()
-    if not ok:
+    sorted_colors = sort_colors()
+    if sorted_colors is None:
         return "No"
     candidates = find_candidates()
     dp = find_dp()
