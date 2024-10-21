@@ -48,7 +48,7 @@ def splitting_hares():
             color_to_weights[c].sort()
             remain = total[c]-cnt[c]
             if remain == 0:
-                candidates[c] = [color_to_weights[c]]
+                candidates[c] = [tuple(color_to_weights[c])]
             elif remain == 1:
                 if len(color_to_weights[c]) == 1:
                     a = color_to_weights[c][0]
