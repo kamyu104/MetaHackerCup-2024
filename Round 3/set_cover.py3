@@ -1,7 +1,7 @@
 # Copyright (c) 2024 kamyu. All rights reserved.
 #
 # Meta Hacker Cup 2024 Round 3 - Problem A: Set Cover
-# https:#www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/A
+# https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/A
 #
 # Time:  O(N^2)
 # Space: O(N)
