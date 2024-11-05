@@ -47,5 +47,5 @@
 |B| [Least Common Ancestor](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/B)| | |  | Easy | | |
 |C| [Coin Change](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/C)| | |  | Hard | | |
 |D| [Min-flow Max-cut](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/D)| | |  | Hard | | |
-|E1| [All Triplets Shortest Path (Part 1)](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/E1| | |  | Medium | | |
+|E1| [All Triplets Shortest Path (Part 1)](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/E1)| | |  | Medium | | |
 |E2| [All Triplets Shortest Path (Part 2)](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/E2)| | |  | Medium | | |
