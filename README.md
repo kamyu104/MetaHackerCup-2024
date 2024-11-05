@@ -1,4 +1,4 @@
-# [MetaHackerCup-2024](https://www.facebook.com/codingcompetitions/hacker-cup) ![Language](https://img.shields.io/badge/language-Python3-orange.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![Progress](https://img.shields.io/badge/progress-15%20%2F%215-ff69b4.svg) ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=kamyu104.metahackercup.2024)
+# [MetaHackerCup-2024](https://www.facebook.com/codingcompetitions/hacker-cup) ![Language](https://img.shields.io/badge/language-Python3-orange.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![Progress](https://img.shields.io/badge/progress-16%20%2F%221-ff69b4.svg) ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=kamyu104.metahackercup.2024)
 
 * Python3 solutions of Meta Hacker Cup 2024. Solution begins with `*` means it will get TLE in the largest data set.
 * Total computation amount > `10^8`, which is not friendly for Python3 to solve in 5 ~ 15 seconds. A `6-minute` timer is set for uploading the result this year.
@@ -11,6 +11,7 @@
 * [Practice Round](https://github.com/kamyu104/MetaHackerCup-2024#practice-round)
 * [Round 1](https://github.com/kamyu104/MetaHackerCup-2024#round-1)
 * [Round 2](https://github.com/kamyu104/MetaHackerCup-2024#round-2)
+* [Round 3](https://github.com/kamyu104/MetaHackerCup-2024#round-3)
 
 ## Practice Round
 | # | Title | Solution | Time | Space | Difficulty | Tag | Note |
@@ -38,3 +39,13 @@
 |B| [Four in a Burrow](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/B)| [PyPy3](./Round%202/four_in_a_burrow.py3) |  _O((R * C) * (R + 1)^C)_ | _O(C * (R + 1)^C)_ | Medium | | BFS |
 |C| [Bunny Hopscotch](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/C)| [PyPy3](./Round%202/bunny_hopscotch.py3) |  _O((R * C * log(min(R, C))) * log(max(R, C)))_ | _O(R * C)_ | Medium | | Binary Search, Two Pointers, Sliding Window, BIT, Fenwick Tree |
 |D| [Splitting Hares](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/D)| [Python3](./Round%202/splitting_hares.py3) | _O(N + MAX_W^2)_ | _O(N + MAX_W)_ | Hard | | Greedy, DP, Backtracing |
+
+## Round 3
+| # | Title | Solution | Time | Space | Difficulty | Tag | Note |
+|---| ----- | -------- | ---- | ----- | ---------- | --- | ---- |
+|A| [Set, Cover](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/A)| [Python3](./Round%203/set_cover.py3) | _O(N^2)_ | _O(N)_ | Easy | | Array |
+|B| [Least Common Ancestor](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/B)| | |  | Easy | | |
+|C| [Coin Change](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/C)| | |  | Hard | | |
+|D| [Min-flow Max-cut](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/D)| | |  | Hard | | |
+|E1| [All Triplets Shortest Path (Part 1)](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/E1| | |  | Medium | | |
+|E2| [All Triplets Shortest Path (Part 2)](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/E2)| | |  | Medium | | |
