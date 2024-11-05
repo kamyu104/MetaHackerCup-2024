@@ -23,12 +23,6 @@ def set_cover():
 
     N, K = list(map(int, input().split()))
     G = [list(input()) for _ in range(N)]
-    if K >= 4:
-        for i in range(N):
-            for j in range(N):
-                if G[i][j] == '?':
-                    G[i][j] = '1'
-        K = 0
     mn_i_1, mn_j_1, mx_i_1, mx_j_1 = min_max_i_j('1')
     mn_i_q, mn_j_q, mx_i_q, mx_j_q = min_max_i_j('?')
     if K == 0:
@@ -45,11 +39,13 @@ def set_cover():
                 row_mn_j_q[i] = min(row_mn_j_q[i], j)
                 row_mx_j_q[i] = max(row_mx_j_q[i], j)
         return max((max(i, j, mx_i_1)-min(i, j, mn_i_1)+1)*(max(row_mx_j_q[j], mx_j_1)-min(row_mn_j_q[i], mn_j_1)+1) for i in range(N) for j in range(N))              
-    return max(max((max(i, mx_i_1)-min(mn_i_q, mn_i_1)+1)*(max(j, mx_j_1)-min(mn_j_q, mn_j_1)+1),
-                   (max(mx_i_q, mx_i_1)-min(i, mn_i_1)+1)*(max(j, mx_j_1)-min(mn_j_q, mn_j_1)+1),
-                   (max(i, mx_i_1)-min(mn_i_q, mn_i_1)+1)*(max(mx_j_q, mx_j_1)-min(j, mn_j_1)+1),
-                   (max(mx_i_q, mx_i_1)-min(i, mn_i_1)+1)*(max(mx_j_q, mx_j_1)-min(j, mn_j_1)+1))
-               for i in range(N) for j in range(N) if G[i][j] == '?')
+    if K == 3:
+        return max(max((max(i, mx_i_1)-min(mn_i_q, mn_i_1)+1)*(max(j, mx_j_1)-min(mn_j_q, mn_j_1)+1),
+                    (max(mx_i_q, mx_i_1)-min(i, mn_i_1)+1)*(max(j, mx_j_1)-min(mn_j_q, mn_j_1)+1),
+                    (max(i, mx_i_1)-min(mn_i_q, mn_i_1)+1)*(max(mx_j_q, mx_j_1)-min(j, mn_j_1)+1),
+                    (max(mx_i_q, mx_i_1)-min(i, mn_i_1)+1)*(max(mx_j_q, mx_j_1)-min(j, mn_j_1)+1))
+                for i in range(N) for j in range(N) if G[i][j] == '?')
+    return (max(mx_i_q, mx_i_1)-min(mn_i_q, mn_i_1)+1)*(max(mx_j_q, mx_j_1)-min(mn_j_q, mn_j_1)+1)
 
 for case in range(int(input())):
     print('Case #%d: %s' % (case+1, set_cover()))
