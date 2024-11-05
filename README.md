@@ -1,4 +1,4 @@
-# [MetaHackerCup-2024](https://www.facebook.com/codingcompetitions/hacker-cup) ![Language](https://img.shields.io/badge/language-Python3-orange.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![Progress](https://img.shields.io/badge/progress-16%20%2F%2021-ff69b4.svg) ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=kamyu104.metahackercup.2024)
+# [MetaHackerCup-2024](https://www.facebook.com/codingcompetitions/hacker-cup) ![Language](https://img.shields.io/badge/language-Python3-orange.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![Progress](https://img.shields.io/badge/progress-17%20%2F%2021-ff69b4.svg) ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=kamyu104.metahackercup.2024)
 
 * Python3 solutions of Meta Hacker Cup 2024. Solution begins with `*` means it will get TLE in the largest data set.
 * Total computation amount > `10^8`, which is not friendly for Python3 to solve in 5 ~ 15 seconds. A `6-minute` timer is set for uploading the result this year.
@@ -44,7 +44,7 @@
 | # | Title | Solution | Time | Space | Difficulty | Tag | Note |
 |---| ----- | -------- | ---- | ----- | ---------- | --- | ---- |
 |A| [Set, Cover](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/A)| [Python3](./Round%203/set_cover.py3) | _O(N^2)_ | _O(N)_ | Easy | | Array |
-|B| [Least Common Ancestor](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/B)| | |  | Easy | | |
+|B| [Least Common Ancestor](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/B)| [Python3](./Round%203/least_common_ancestor.py3) | _O(N * (logN)^2)_ | _O(N)_ | Easy | | Sort, DFS, Sorted List, Freq Table |
 |C| [Coin Change](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/C)| | |  | Hard | | |
 |D| [Min-flow Max-cut](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/D)| | |  | Hard | | |
 |E1| [All Triplets Shortest Path (Part 1)](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/E1)| | |  | Medium | | |
