@@ -45,7 +45,7 @@ def coin_change():
     # = D*N * (1/(N-B1*c) + 1/(N-(B1+1)*c) + ... + 1/(N-(min(N, B2)-1)*c))
     # = D*N * (1/(N/c-min(N, B2)+1) + 1/(N/c-min(N, B2)+2)... + 1/(N/c-B1)) / c
     # = D*N * (H(N/c-B1)-H(N/c-min(N, B2))) / c
-    result += D*N*(sum(1/(N-x*c) for x in range(B1, min(N, B2))) if N/c-B1 < THRESHOLD else (H(N/c-B1)-H(N/c-min(N, B2)))/c)
+    result += D*N*(sum(1/(N-x*c) for x in range(B1, min(N, B2))) if N/c-min(N, B2) < THRESHOLD else (H(N/c-B1)-H(N/c-min(N, B2)))/c)
     if B2 < N:
         # (D+1) dollars for [B2, N-1]
         result += (D+1)*(N-B2)
