@@ -12,8 +12,11 @@ from math import log
 # https://en.wikipedia.org/wiki/Harmonic_number#Calculation
 GAMMA = 0.5772156649015328606065120900824
 THRESHOLD = 10**8
+def f(N):
+    return log(N)+GAMMA
+
 def H(N):
-    return sum(1/i for i in range(1, N+1)) if N < THRESHOLD else log(N)+GAMMA
+    return sum(1/i for i in range(1, N+1)) if N < THRESHOLD else f(N)
 
 def ceil_divide(a, b):
     return (a+b-1)//b
@@ -45,7 +48,7 @@ def coin_change():
     # = D*N * (1/(N-B1*c) + 1/(N-(B1+1)*c) + ... + 1/(N-(min(N, B2)-1)*c))
     # = D*N * (1/(N/c-min(N, B2)+1) + 1/(N/c-min(N, B2)+2)... + 1/(N/c-B1)) / c
     # = D*N * (H(N/c-B1)-H(N/c-min(N, B2))) / c
-    result += D*N*(sum(1/(N-x*c) for x in range(B1, min(N, B2))) if N/c-min(N, B2) < THRESHOLD else (H(N/c-B1)-H(N/c-min(N, B2)))/c)
+    result += D*N*(sum(1/(N-x*c) for x in range(B1, min(N, B2))) if min(N, B2)-B1 < THRESHOLD else (f(N/c-B1)-f(N/c-min(N, B2)))/c)
     if B2 < N:
         # (D+1) dollars for [B2, N-1]
         result += (D+1)*(N-B2)
