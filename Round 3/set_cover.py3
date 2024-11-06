@@ -38,7 +38,7 @@ def set_cover():
                     continue
                 row_mn_j_q[i] = min(row_mn_j_q[i], j)
                 row_mx_j_q[i] = max(row_mx_j_q[i], j)
-        return max((max(i, j, mx_i_1)-min(i, j, mn_i_1)+1)*(max(row_mx_j_q[j], mx_j_1)-min(row_mn_j_q[i], mn_j_1)+1) for i in range(N) for j in range(N))              
+        return max((max(i, j, mx_i_1)-min(i, j, mn_i_1)+1)*(max(row_mx_j_q[j], mx_j_1)-min(row_mn_j_q[i], mn_j_1)+1) for i in range(N) for j in range(N))
     if K == 3:
         return max(max((max(i, mx_i_1)-min(mn_i_q, mn_i_1)+1)*(max(j, mx_j_1)-min(mn_j_q, mn_j_1)+1),
                        (max(mx_i_q, mx_i_1)-min(i, mn_i_1)+1)*(max(j, mx_j_1)-min(mn_j_q, mn_j_1)+1),

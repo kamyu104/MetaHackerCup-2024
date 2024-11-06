@@ -18,7 +18,7 @@ def least_common_ancestor():
         if cnt[u]:
             sl.add((cnt[u], u))
         else:
-            del cnt[u]            
+            del cnt[u]
 
     def merge(sl1, cnt1, sl2, cnt2):
         if len(sl1) < len(sl2):
