@@ -48,4 +48,4 @@
 |C| [Coin Change](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/C)| | |  | Hard | | |
 |D| [Min-flow Max-cut](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/D)| | |  | Hard | | |
 |E1| [All Triplets Shortest Path (Part 1)](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/E1)| [Python3](./Round%203/all_triplets_shortest_path_part_1.py3) | _O(N)_ | _O(N)_ | Medium | | Graph, `Floyd-Warshall Algorithm` |
-|E2| [Python3](./Round%203/all_triplets_shortest_path_part_2.py3) | _O(N)_ | _O(N)_ | Medium | | Graph, `Floyd-Warshall Algorithm` |
+|E2| [All Triplets Shortest Path (Part 2)](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/E2)|[Python3](./Round%203/all_triplets_shortest_path_part_2.py3) | _O(N)_ | _O(N)_ | Medium | | Graph, `Floyd-Warshall Algorithm` |
