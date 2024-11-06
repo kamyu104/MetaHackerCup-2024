@@ -1,4 +1,4 @@
-# [MetaHackerCup-2024](https://www.facebook.com/codingcompetitions/hacker-cup) ![Language](https://img.shields.io/badge/language-Python3-orange.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![Progress](https://img.shields.io/badge/progress-18%20%2F%2021-ff69b4.svg) ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=kamyu104.metahackercup.2024)
+# [MetaHackerCup-2024](https://www.facebook.com/codingcompetitions/hacker-cup) ![Language](https://img.shields.io/badge/language-Python3-orange.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![Progress](https://img.shields.io/badge/progress-19%20%2F%2021-ff69b4.svg) ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=kamyu104.metahackercup.2024)
 
 * Python3 solutions of Meta Hacker Cup 2024. Solution begins with `*` means it will get TLE in the largest data set.
 * Total computation amount > `10^8`, which is not friendly for Python3 to solve in 5 ~ 15 seconds. A `6-minute` timer is set for uploading the result this year.
@@ -48,4 +48,4 @@
 |C| [Coin Change](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/C)| | |  | Hard | | |
 |D| [Min-flow Max-cut](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/D)| | |  | Hard | | |
 |E1| [All Triplets Shortest Path (Part 1)](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/E1)| [Python3](./Round%203/all_triplets_shortest_path_part_1.py3) | _O(N)_ | _O(N)_ | Medium | | Graph, `Floyd-Warshall Algorithm` |
-|E2| [All Triplets Shortest Path (Part 2)](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/E2)| | |  | Medium | | |
+|E2| [Python3](./Round%203/all_triplets_shortest_path_part_2.py3) | _O(N)_ | _O(N)_ | Medium | | Graph, `Floyd-Warshall Algorithm` |
