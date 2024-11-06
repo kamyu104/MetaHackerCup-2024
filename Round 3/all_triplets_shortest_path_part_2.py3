@@ -21,7 +21,7 @@ def all_triplets_shortest_path_part_2():
     if i == 1:
         return "Lucky" if not any(sum(v < u for v in adj[u]) >= 2 and any(len(adj[v]) >= 2 for v in adj[u] if v < u) for u in range(N)) else "Wrong"
     mn_cnt = [0]*N
-    mn_adj = [float("inf")]*N
+    mn_adj = [N]*N
     for u in range(N):
         for v in adj[u]:
             if v > u:
