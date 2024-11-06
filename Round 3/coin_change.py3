@@ -13,7 +13,7 @@ from math import log
 GAMMA = 0.5772156649015328606065120900824
 THRESHOLD = 10**8
 def H(N):
-    return log(N)+GAMMA if N >= THRESHOLD else sum(1/i for i in range(1, N+1))
+    return sum(1/i for i in range(1, N+1)) if N < THRESHOLD else log(N)+GAMMA
 
 def ceil_divide(a, b):
     return (a+b-1)//b
