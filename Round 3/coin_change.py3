@@ -21,17 +21,17 @@ def ceil_divide(a, b):
 def coin_change():
     N, P = list(map(int, input().split()))
     p = P/100
-    # B1 = N/(1+p)
+    # B1 = N/(1+p) = 100*N/(100+P)
     B1 = ceil_divide(100*N, 100+P)
     # 1 * (N/(N-0) + N/(N-1) + ... + N/(N-(B1-1)))
     # = 1 * (N * (1/(N-B1+1) + 1/(N-B1) + ... + 1/(N-0)))
     # = 1 * (N * (H(N)-H(N-B1)))
     result = 1*(N*(H(N)-H(N-B1)))  # [0, B1-1]
-    if not p:
+    if not P:
         return result
     # (M-1)*p >= 1
     # M >= 1/p+1 = 100/P+1
-    # D = M-1
+    # D = M-1 = 100/P
     D = ceil_divide(100, P)
     c = 1-(D-1)*p
     # D*N/(N-B2*c) >= D+1
