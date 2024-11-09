@@ -91,9 +91,7 @@ def to_list(t):
 def minflow_maxcut():
     def small_to_large_merge(t1, t2):
         def trim_total(t, total):
-            if not t:
-                return None
-            if total < 0:
+            if not t or total < 0:
                 return None
             if get_total(t.right) >= total:
                 return trim_total(t.right, total)
