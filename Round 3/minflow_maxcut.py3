@@ -105,11 +105,10 @@ def minflow_maxcut():
             return update(t)
 
         def merge_min(t1, t2):
-            prefix1 = list(accumulate(reversed(to_list(t1)), initial=0))
-            prefix2 = list(accumulate(reversed(to_list(t2)), initial=0))
+            prefix1 = accumulate(reversed(to_list(t1)), initial=0)
+            prefix2 = accumulate(reversed(to_list(t2)), initial=0)
             mns = [min(x, y) for x, y in zip(prefix1, prefix2)]
-            diffs = [mns[i+1]-mns[i] for i in reversed(range(len(mns)-1))]
-            return reduce(merge, (TreapNode(d) for d in diffs))
+            return reduce(merge, (TreapNode(mns[i+1]-mns[i]) for i in reversed(range(len(mns)-1))))
 
         if t1.size < t2.size:
             t1, t2 = t2, t1
