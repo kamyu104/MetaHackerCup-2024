@@ -1,6 +1,6 @@
 # Copyright (c) 2024 kamyu. All rights reserved.
 #
-# Meta Hacker Cup 2024 Round 3 - Problem D: Set Cover
+# Meta Hacker Cup 2024 Round 3 - Problem D: Min-flow Max-cut
 # https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/D
 #
 # Time:  O(N * logN * logM)
