@@ -13,7 +13,6 @@ from functools import reduce
 
 class TreapNode:
     def __init__(self, key):
-        assert(key >= 0)
         self.key = key
         self.prior = random()
         self.left = None
@@ -38,13 +37,6 @@ def update(x):
     x.total = x.key+get_total(x.left)+get_total(x.right)
     x.substract = (get_substract(x.left)+get_substract(x.right)+get_size(x.right)*x.key+(get_size(x.right)+1)*get_total(x.left))%MOD
     return x
-
-def inorder_traversal(u, cb):
-    if not u:
-        return
-    inorder_traversal(u.left, cb)
-    cb(u)
-    inorder_traversal(u.right, cb)
 
 def split(t, key):
     if not t:
@@ -85,50 +77,46 @@ def insert(t, key):
     return merge(merge(left, TreapNode(key)), right)
 
 def to_list(t):
+    def inorder_traversal(u, cb):
+        if not u:
+            return
+        inorder_traversal(u.left, cb)
+        cb(u)
+        inorder_traversal(u.right, cb)
+
     result = []
     inorder_traversal(t, lambda x: result.append(x.key))
     return result
 
-def prefix_sum(t):
-    return list(accumulate(reversed(to_list(t)), initial=0))
-
-def get_last(t, size):
-    return split_by_size(t, get_size(t)-size)[1] if get_size(t) > size else t
-
-def trim_total(t, total):
-    if not t:
-        return None
-    if total < 0:
-        return None
-    if get_total(t.right) >= total:
-        return trim_total(t.right, total)
-    if get_total(t.right)+t.key >= total:
-        new_t = TreapNode(total-get_total(t.right))
-        new_t.right = t.right
-        return update(new_t)
-    t.left = trim_total(t.left, total-get_total(t.right)-t.key)
-    return update(t)
-
-def merge_min(t1, t2):
-    assert(get_size(t1) == get_size(t2))
-    prefix1 = prefix_sum(t1)
-    prefix2 = prefix_sum(t2)
-    assert(len(prefix1) == len(prefix2))
-    mns = [min(x, y) for x, y in zip(prefix1, prefix2)]
-    diffs = [mns[i+1]-mns[i] for i in reversed(range(len(mns)-1))]
-    assert(all(diffs[i] <= diffs[i+1] for i in range(len(diffs)-1)))
-    return reduce(merge, (TreapNode(d) for d in diffs))
-
-def merge_subtrees(t1, t2):
-    assert(t1 and t2)
-    if t1.size < t2.size:
-        t1, t2 = t2, t1
-    left, right = split_by_size(t1, t1.size-t2.size)
-    assert(get_size(right) == get_size(t2))
-    left = trim_total(left, get_total(t2)-get_total(right))
-    return merge(left, merge_min(right, t2))
-
 def minflow_maxcut():
+    def merge_subtrees(t1, t2):
+        def trim_total(t, total):
+            if not t:
+                return None
+            if total < 0:
+                return None
+            if get_total(t.right) >= total:
+                return trim_total(t.right, total)
+            if get_total(t.right)+t.key >= total:
+                new_t = TreapNode(total-get_total(t.right))
+                new_t.right = t.right
+                return update(new_t)
+            t.left = trim_total(t.left, total-get_total(t.right)-t.key)
+            return update(t)
+
+        def merge_min(t1, t2):
+            prefix1 = list(accumulate(reversed(to_list(t1)), initial=0))
+            prefix2 = list(accumulate(reversed(to_list(t2)), initial=0))
+            mns = [min(x, y) for x, y in zip(prefix1, prefix2)]
+            diffs = [mns[i+1]-mns[i] for i in reversed(range(len(mns)-1))]
+            return reduce(merge, (TreapNode(d) for d in diffs))
+
+        if t1.size < t2.size:
+            t1, t2 = t2, t1
+        left, right = split_by_size(t1, t1.size-t2.size)
+        left = trim_total(left, get_total(t2)-get_total(right))
+        return merge(left, merge_min(right, t2))
+
     def iter_dfs():
         result = 0
         ret = [None]
@@ -156,7 +144,8 @@ def minflow_maxcut():
             elif step == 4:
                 u, ret = args
                 ret[0] = insert(ret[0], A[u])
-                ret[0] = get_last(ret[0], M)
+                if get_size(ret[0]) > M:
+                    ret[0] = split_by_size(ret[0], get_size(ret[0])-M)[1]
                 result = (result+get_total(ret[0])*M-get_substract(ret[0]))%MOD
         return result
 
