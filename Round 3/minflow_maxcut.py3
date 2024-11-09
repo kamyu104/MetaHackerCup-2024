@@ -98,7 +98,7 @@ def minflow_maxcut():
             if get_total(t.right) >= total:
                 return trim_total(t.right, total)
             if get_total(t.right)+t.key >= total:
-                return insert(t.right, total-get_total(t.right))
+                return merge(TreapNode(total-get_total(t.right)), t.right)
             t.left = trim_total(t.left, total-get_total(t.right)-t.key)
             return update(t)
 
