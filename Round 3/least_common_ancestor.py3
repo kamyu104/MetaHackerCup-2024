@@ -20,7 +20,7 @@ def least_common_ancestor():
         else:
             del cnt[u]
 
-    def merge(sl1, cnt1, sl2, cnt2):
+    def small_to_large_merge(sl1, cnt1, sl2, cnt2):
         if len(sl1) < len(sl2):
             sl1, cnt1, sl2, cnt2 = sl2, cnt2, sl1, cnt1
         for c, u in sl2:
@@ -54,7 +54,7 @@ def least_common_ancestor():
                 stk.append((1, (v, new_ret)))
             elif step == 3:
                 v, new_ret, ret = args
-                ret[:] = merge(ret[0], ret[1], new_ret[0], new_ret[1])
+                ret[:] = small_to_large_merge(ret[0], ret[1], new_ret[0], new_ret[1])
             elif step == 4:
                 u, (curr_sl, curr_cnt) = args
                 update(sl, cnt, s_to_idx[S[u]], -1)

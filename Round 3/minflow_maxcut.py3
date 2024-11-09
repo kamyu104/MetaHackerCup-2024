@@ -3,7 +3,7 @@
 # Meta Hacker Cup 2024 Round 3 - Problem D: Set Cover
 # https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/D
 #
-# Time:  O(N * (logN)^2)
+# Time:  O(N * logN * logM)
 # Space: O(N)
 #
 
@@ -89,7 +89,7 @@ def to_list(t):
     return result
 
 def minflow_maxcut():
-    def merge_subtrees(t1, t2):
+    def small_to_large_merge(t1, t2):
         def trim_total(t, total):
             if not t:
                 return None
@@ -140,7 +140,7 @@ def minflow_maxcut():
                 stk.append((1, (v, u, new_ret)))
             elif step == 3:
                 v, new_ret, ret = args
-                ret[0] = merge_subtrees(ret[0], new_ret[0]) if ret[0] else new_ret[0]
+                ret[0] = small_to_large_merge(ret[0], new_ret[0]) if ret[0] else new_ret[0]
             elif step == 4:
                 u, ret = args
                 ret[0] = insert(ret[0], A[u])
