@@ -98,13 +98,11 @@ def minflow_maxcut():
             if get_total(t.right) >= total:
                 return trim_total(t.right, total)
             if get_total(t.right)+t.key >= total:
-                new_t = TreapNode(total-get_total(t.right))
-                new_t.right = t.right
-                return update(new_t)
+                return insert(t.right, total-get_total(t.right))
             t.left = trim_total(t.left, total-get_total(t.right)-t.key)
             return update(t)
 
-        def merge_min(t1, t2):
+        def min_merge(t1, t2):
             prefix1 = accumulate(reversed(to_list(t1)), initial=0)
             prefix2 = accumulate(reversed(to_list(t2)), initial=0)
             mns = [min(x, y) for x, y in zip(prefix1, prefix2)]
@@ -114,7 +112,7 @@ def minflow_maxcut():
             t1, t2 = t2, t1
         left, right = split_by_size(t1, t1.size-t2.size)
         left = trim_total(left, get_total(t2)-get_total(right))
-        return merge(left, merge_min(right, t2))
+        return merge(left, min_merge(right, t2))
 
     def iter_dfs():
         result = 0
