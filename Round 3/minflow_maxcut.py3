@@ -23,20 +23,20 @@ class TreapNode:
         self.total = key
         self.substract = 0
 
-def get_size(x):
-    return x.size if x else 0
+def get_size(t):
+    return t.size if t else 0
 
-def get_total(x):
-    return x.total if x else 0
+def get_total(t):
+    return t.total if t else 0
 
-def get_substract(x):
-    return x.substract if x else 0
+def get_substract(t):
+    return t.substract if t else 0
 
-def update(x):
-    x.size = 1+get_size(x.left)+get_size(x.right)
-    x.total = x.key+get_total(x.left)+get_total(x.right)
-    x.substract = (get_substract(x.left)+get_substract(x.right)+get_size(x.right)*x.key+(get_size(x.right)+1)*get_total(x.left))%MOD
-    return x
+def update(t):
+    t.size = 1+get_size(t.left)+get_size(t.right)
+    t.total = t.key+get_total(t.left)+get_total(t.right)
+    t.substract = (get_substract(t.left)+get_substract(t.right)+get_size(t.right)*t.key+(get_size(t.right)+1)*get_total(t.left))%MOD
+    return t
 
 def split(t, key):
     if not t:
