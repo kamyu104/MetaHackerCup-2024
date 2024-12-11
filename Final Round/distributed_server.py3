@@ -103,7 +103,7 @@ def distributed_server():
                         dinic.add_edge(index(i, j, 1), index(i+1, j, 0), 1)
                     if j+1 < C:
                         dinic.add_edge(index(i, j, 1), index(i, j+1, 0), 1)
-            if dinic.max_flow(dinic.source, dinic.sink) != len(lookup[d]):
+            if dinic.max_flow(dinic.source, dinic.sink) != len(robots):
                 result.pop()
                 return False
         result.pop()
