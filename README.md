@@ -1,4 +1,4 @@
-# [MetaHackerCup-2024](https://www.facebook.com/codingcompetitions/hacker-cup) ![Language](https://img.shields.io/badge/language-Python3-orange.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![Progress](https://img.shields.io/badge/progress-21%20%2F%2021-ff69b4.svg) ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=kamyu104.metahackercup.2024)
+# [MetaHackerCup-2024](https://www.facebook.com/codingcompetitions/hacker-cup) ![Language](https://img.shields.io/badge/language-Python3-orange.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![Progress](https://img.shields.io/badge/progress-21%20%2F%2027-ff69b4.svg) ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=kamyu104.metahackercup.2024)
 
 * Python3 solutions of Meta Hacker Cup 2024. Solution begins with `*` means it will get TLE in the largest data set.
 * Total computation amount > `10^8`, which is not friendly for Python3 to solve in 5 ~ 15 seconds. A `6-minute` timer is set for uploading the result this year.
@@ -12,6 +12,7 @@
 * [Round 1](https://github.com/kamyu104/MetaHackerCup-2024#round-1)
 * [Round 2](https://github.com/kamyu104/MetaHackerCup-2024#round-2)
 * [Round 3](https://github.com/kamyu104/MetaHackerCup-2024#round-3)
+* [Final Round](https://github.com/kamyu104/MetaHackerCup-2024#final-round)
 
 ## Practice Round
 | # | Title | Solution | Time | Space | Difficulty | Tag | Note |
@@ -49,3 +50,15 @@
 |D| [Min-flow Max-cut](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/D)| [Python3](./Round%203/minflow_maxcut.py3) | _O(N * logN * logM)_ |  _O(N)_ | Hard | | DFS, Treap, Prefix Sum, Small-to-Large Merging |
 |E1| [All Triplets Shortest Path (Part 1)](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/E1)| [Python3](./Round%203/all_triplets_shortest_path_part_1.py3) | _O(N)_ | _O(N)_ | Medium | | Graph, `Floyd-Warshall Algorithm` |
 |E2| [All Triplets Shortest Path (Part 2)](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-3/problems/E2)|[Python3](./Round%203/all_triplets_shortest_path_part_2.py3) | _O(N)_ | _O(N)_ | Medium | | Graph, `Floyd-Warshall Algorithm` |
+
+## Final Round
+You can relive the magic of the 2024 Hacker Cup World Finals by watching the [Live Stream Recording](https://www.facebook.com/hackercup/videos/1605757346686665) of the announcement of winners.
+
+| # | Title | Solution | Time | Space | Difficulty | Tag | Note |
+|---| ----- | -------- | ---- | ----- | ---------- | --- | ---- |
+|A| [Duplicate Order](https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/A)| | | | Easy | | |
+|B| [Distributed Server](https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/B)| | | | Easy | | |
+|C| [Chicken Tender](https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/C)| | | | Hard | | |
+|D| [Sushi Platter](https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/D)| | | | Medium | | |
+|E| [Snake Cover](https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/E)| | | | Medium | | |
+|F| [Pizza Broiler](https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/F)| | | | Hard | | |
