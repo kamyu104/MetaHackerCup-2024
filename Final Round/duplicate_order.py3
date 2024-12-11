@@ -3,8 +3,8 @@
 # Meta Hacker Cup 2024 Final Round - Problem A. Duplicate Order
 # https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/A
 #
-# Time:  O(min(M1, M2) + H^2)
-# Space: O(min(M1, M2) + H)
+# Time:  O(N + min(M1, M2) + H^2)
+# Space: O(N + min(M1, M2) + H)
 #
 
 fact, inv, inv_fact = [[1]*2 for _ in range(3)]

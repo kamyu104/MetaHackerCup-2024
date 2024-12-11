@@ -56,7 +56,7 @@ You can relive the magic of the 2024 Hacker Cup World Finals by watching the [Li
 
 | # | Title | Solution | Time | Space | Difficulty | Tag | Note |
 |---| ----- | -------- | ---- | ----- | ---------- | --- | ---- |
-|A| [Duplicate Order](https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/A)| [Python3](./Final%20Round/duplicate_order.py3)  | _O(min(M1, M2) + H^2)_ | _O(min(M1, M2) + H)_ | Easy | | Combinatorics, Prefix Sum, Fast Exponentiation |
+|A| [Duplicate Order](https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/A)| [Python3](./Final%20Round/duplicate_order.py3)  | _O(N + min(M1, M2) + H^2)_ | _O(N + min(M1, M2) + H)_ | Easy | | Combinatorics, Prefix Sum, Fast Exponentiation |
 |B| [Distributed Server](https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/B)| | | | Easy | | |
 |C| [Chicken Tender](https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/C)| | | | Hard | | |
 |D| [Sushi Platter](https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/D)| | | | Medium | | |
