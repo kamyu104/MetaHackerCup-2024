@@ -91,13 +91,10 @@ def distributed_server():
                     if not (0 <= i+j-d < len(result)):
                         continue
                     dinic.add_edge(index(i, j, 0), index(i, j, 1), 1)
-                    if G[i][j] > result[i+j-d]:
+                    if G[i][j] > result[i+j-d] or (G[i][j] == result[i+j-d] and i+j-d == len(result)-1):
                         dinic.add_edge(index(i, j, 1), dinic.sink, 1)
                         continue
                     if G[i][j] < result[i+j-d]:
-                        continue
-                    if i+j-d == len(result)-1:
-                        dinic.add_edge(index(i, j, 1), dinic.sink, 1)
                         continue
                     if i+1 < R:
                         dinic.add_edge(index(i, j, 1), index(i+1, j, 0), 1)
