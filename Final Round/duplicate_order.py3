@@ -33,9 +33,10 @@ def duplicate_order():
     result = 0
     for a in range(H+1):
         for b in range(H-a+1):
-            if M1-H+a < 0 or M2-H+b < 0:
+            mn = min(M1-H+a, M2-H+b)
+            if mn < 0:
                 continue
-            result = (result+nCr(H, a)*nCr(H-a, b)*pow_S_2[H-a-b]*prefix[min(M1-H+a, M2-H+b)+1])%MOD
+            result = (result+nCr(H, a)*nCr(H-a, b)*pow_S_2[H-a-b]*prefix[mn+1])%MOD
     result = (result*pow(S, N, MOD)*nCr(N, H)*pow(S-1, H, MOD))%MOD
     return result
 
