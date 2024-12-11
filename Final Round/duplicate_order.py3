@@ -31,12 +31,9 @@ def duplicate_order():
     for i in range(len(pow_S_2)-1):
         pow_S_2[i+1] = (pow_S_2[i]*(S-2))%MOD
     result = 0
-    for a in range(H+1):
-        for b in range(H-a+1):
-            mn = min(M1-H+a, M2-H+b)
-            if mn < 0:
-                continue
-            result = (result+nCr(H, a)*nCr(H-a, b)*pow_S_2[H-a-b]*prefix[mn+1])%MOD
+    for a in range(max(H-M1, 0), H+1):
+        for b in range(max(H-M2, 0), H-a+1):
+            result = (result+nCr(H, a)*nCr(H-a, b)*pow_S_2[H-a-b]*prefix[min(M1-H+a, M2-H+b)+1])%MOD
     result = (result*pow(S, N, MOD)*nCr(N, H)*pow(S-1, H, MOD))%MOD
     return result
 
