@@ -27,13 +27,13 @@ def duplicate_order():
     prefix = [0]*(len(cnt)+1)
     for i in range(len(cnt)):
         prefix[i+1] = (prefix[i]+cnt[i])%MOD
-    pow_S_2 = [1]*(H+1)
-    for i in range(len(pow_S_2)-1):
-        pow_S_2[i+1] = (pow_S_2[i]*(S-2))%MOD
+    pow_S_m_2 = [1]*(H+1)
+    for i in range(len(pow_S_m_2)-1):
+        pow_S_m_2[i+1] = (pow_S_m_2[i]*(S-2))%MOD
     result = 0
     for a in range(max(H-M1, 0), H+1):
         for b in range(max(H-M2, 0), H-a+1):
-            result = (result+nCr(H, a)*nCr(H-a, b)*pow_S_2[H-a-b]*prefix[min(M1-H+a, M2-H+b)+1])%MOD
+            result = (result+nCr(H, a)*nCr(H-a, b)*pow_S_m_2[H-a-b]*prefix[min(M1-H+a, M2-H+b)+1])%MOD
     result = (result*pow(S, N, MOD)*nCr(N, H)*pow(S-1, H, MOD))%MOD
     return result
 
