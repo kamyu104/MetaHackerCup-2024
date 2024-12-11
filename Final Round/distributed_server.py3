@@ -115,8 +115,10 @@ def distributed_server():
                 continue
             G[i][j] = G[i][j].lower()
             lookup[i+j].append((i, j))
+    left = ord(min(x for row in G for x in row))-ord('a')
+    right = ord(max(x for row in G for x in row))-ord('a')
     result = []
-    while (i := binary_search_right(0, 25, check)) != -1:
+    while (i := binary_search_right(left, right, check)) != left-1:
         result.append(chr(ord('a')+i))
     return "".join(result)
 
