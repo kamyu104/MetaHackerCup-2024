@@ -54,13 +54,11 @@ def chicken_tender():
 
     N, W, D = list(map(int, input().split()))
     X_Y = [list(map(int, input().split())) for _ in range(N)]
-    result = float("inf")
     for _ in range(N):
         X_Y = center_at(X_Y, N-1)
         theta = angle(vector(X_Y[-1], X_Y[0]), vector(X_Y[0], X_Y[1]))
         degree = ternary_search(0, theta, check)
-        result = min(result, width(degree))
-        if result <= W+EPS2:
+        if width(degree) <= W+EPS2:
             return "Yes"
     return "No"
 
