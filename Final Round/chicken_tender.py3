@@ -60,8 +60,8 @@ def chicken_tender():
     for _ in range(N):
         X_Y = center_at(X_Y, N-1)
         theta = angle(vector(X_Y[-1], X_Y[0]), vector(X_Y[0], X_Y[1]))
-        degree = ternary_search(0, theta, check)
-        if width(degree) <= W+EPS2:
+        t = ternary_search(0, theta, check)
+        if width(t) <= W+EPS2:
             return "Yes"
     return "No"
 
