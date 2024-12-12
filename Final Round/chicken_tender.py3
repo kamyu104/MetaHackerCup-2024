@@ -56,7 +56,7 @@ def chicken_tender():
     X_Y = [list(map(int, input().split())) for _ in range(N)]
     result = float("inf")
     for _ in range(N):
-        X_Y = center_at(X_Y, 1)
+        X_Y = center_at(X_Y, N-1)
         theta = angle(vector(X_Y[-1], X_Y[0]), vector(X_Y[0], X_Y[1]))
         degree = ternary_search(0, theta, check)
         result = min(result, width(degree))
