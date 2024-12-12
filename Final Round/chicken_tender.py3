@@ -9,14 +9,14 @@
 
 from math import sin, cos, atan2
 
-def rotate(x_y, theta):
-    return [[x*cos(theta)-y*sin(theta), x*sin(theta)+y*cos(theta)] for x, y in x_y]
-
-def vector(a, b):
-    return [b[i]-a[i] for i in range(len(a))]
+def vector(p1, p2):
+    return [p2[0]-p1[0], p2[1]-p1[1]]
 
 def angle(v1, v2):
     return atan2(v2[1], v2[0])-atan2(v1[1], v1[0])
+
+def rotate(p, theta):
+    return p[0]*cos(theta)-p[1]*sin(theta), p[0]*sin(theta)+p[1]*cos(theta)
 
 def ternary_search(left, right, check):
     while right-left >= EPS:
@@ -29,12 +29,15 @@ def ternary_search(left, right, check):
     return left
 
 def chicken_tender():
+    def rotate_points(X_Y, theta):
+        return list(map(lambda x: rotate(x, theta), X_Y))
+
     def center_at(X_Y, idx):
         result = [[X_Y[(idx+i)%N][0]-X_Y[idx][0], X_Y[(idx+i)%N][1]-X_Y[idx][1]] for i in range(N)]
-        return rotate(result, angle(vector(result[0], result[1]), [1, 0]))
+        return rotate_points(result, angle(vector(result[0], result[1]), [1, 0]))
 
     def width(theta):
-        new_X_Y = rotate(X_Y, theta)
+        new_X_Y = rotate_points(X_Y, theta)
         mn, mx = float("inf"), float("-inf")
         for i in range(N):
             x1, y1 = new_X_Y[i]
