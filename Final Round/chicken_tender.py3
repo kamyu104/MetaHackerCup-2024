@@ -44,9 +44,9 @@ def chicken_tender():
             x2, y2 = new_X_Y[(i+1)%N]
             if y1 > y2:
                 (x1, y1), (x2, y2) = (x2, y2), (x1, y1)
-            if not y1+EPS2 < D:
+            if not y1 < D*(1-EPS):
                 continue
-            if not y2+EPS2 < D:
+            if not y2 < D*(1-EPS):
                 x2 = x1+(D-y1)*(x2-x1)/(y2-y1)
             mn = min(mn, x1, x2)
             mx = max(mx, x1, x2)
@@ -61,11 +61,10 @@ def chicken_tender():
         X_Y = center_at(X_Y, N-1)
         theta = angle(vector(X_Y[-1], X_Y[0]), vector(X_Y[0], X_Y[1]))
         t = ternary_search(0, theta, check)
-        if width(t) <= W+EPS2:
+        if width(t) <= W*(1+EPS):
             return "Yes"
     return "No"
 
 EPS = 1e-15
-EPS2 = 1e-9
 for case in range(int(input())):
     print('Case #%d: %s' % (case+1, chicken_tender()))
