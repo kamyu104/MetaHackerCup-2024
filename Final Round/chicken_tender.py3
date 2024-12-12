@@ -65,6 +65,6 @@ def chicken_tender():
             return "Yes"
     return "No"
 
-EPS = 1e-15
+EPS = 1e-9
 for case in range(int(input())):
     print('Case #%d: %s' % (case+1, chicken_tender()))
