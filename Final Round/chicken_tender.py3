@@ -41,9 +41,9 @@ def chicken_tender():
             x2, y2 = new_X_Y[(i+1)%N]
             if y1 > y2:
                 (x1, y1), (x2, y2) = (x2, y2), (x1, y1)
-            if y1+EPS2 > D:
+            if not y1+EPS2 < D:
                 continue
-            if y2+EPS2 > D:
+            if not y2+EPS2 < D:
                 x2 = x1+(D-y1)*(x2-x1)/(y2-y1)
             mn = min(mn, x1, x2)
             mx = max(mx, x1, x2)
