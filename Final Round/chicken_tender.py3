@@ -19,7 +19,7 @@ def angle(v1, v2):
     return atan2(v2[1], v2[0])-atan2(v1[1], v1[0])
 
 def ternary_search(left, right, check):
-    while right-EPS >= left+EPS:
+    while right-left >= EPS:
         mid1 = left+(right-left)/3
         mid2 = right-(right-left)/3
         if check(mid1, mid2):
