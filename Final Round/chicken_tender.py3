@@ -19,7 +19,7 @@ def rotate(p, theta):
     return p[0]*cos(theta)-p[1]*sin(theta), p[0]*sin(theta)+p[1]*cos(theta)
 
 def ternary_search(left, right, check):
-    while right-left >= EPS:
+    while right-left > EPS:
         mid1 = left+(right-left)/3
         mid2 = right-(right-left)/3
         if check(mid1, mid2):
