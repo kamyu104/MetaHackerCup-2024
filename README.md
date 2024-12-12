@@ -57,7 +57,7 @@ You can relive the magic of the 2024 Hacker Cup World Finals by watching the [Li
 | # | Title | Solution | Time | Space | Difficulty | Tag | Note |
 |---| ----- | -------- | ---- | ----- | ---------- | --- | ---- |
 |A| [Duplicate Order](https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/A)| [Python3](./Final%20Round/duplicate_order.py3) | _O(N + min(M1, M2) + H^2)_ | _O(N + min(M1, M2) + H)_ | Easy | | Combinatorics, Prefix Sum, Fast Exponentiation |
-|B| [Distributed Server](https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/B)| [Python3](./Final%20Round/distributed_server.py3) | _O((R + C)^2 * (R * C)^3)_ | _O(R * C)_ | Easy | | Binary Search, Max Flow, Dinic's Algorithm |
+|B| [Distributed Server](https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/B)| [Python3](./Final%20Round/distributed_server.py3) | _O((R + C)^2 * (R * C)^3)_ | _O(R * C)_ | Easy | | Binary Search, Max Flow, `Dinic's Algorithm` |
 |C| [Chicken Tender](https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/C)| [Python3](./Final%20Round/chicken_tender.py3) | _O(N^2 * logR)_ | _O(N)_ | Medium | | Ternary Search, Geometry |
 |D| [Sushi Platter](https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/D)| | | | Medium | | |
 |E| [Snake Cover](https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/E)| | | | Medium | | |
