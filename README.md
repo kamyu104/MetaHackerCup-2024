@@ -1,4 +1,4 @@
-# [MetaHackerCup-2024](https://www.facebook.com/codingcompetitions/hacker-cup) ![Language](https://img.shields.io/badge/language-Python3-orange.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![Progress](https://img.shields.io/badge/progress-24%20%2F%2027-ff69b4.svg) ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=kamyu104.metahackercup.2024)
+# [MetaHackerCup-2024](https://www.facebook.com/codingcompetitions/hacker-cup) ![Language](https://img.shields.io/badge/language-Python3-orange.svg) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) ![Progress](https://img.shields.io/badge/progress-25%20%2F%2027-ff69b4.svg) ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=kamyu104.metahackercup.2024)
 
 * Python3 solutions of Meta Hacker Cup 2024. Solution begins with `*` means it will get TLE in the largest data set.
 * Total computation amount > `10^8`, which is not friendly for Python3 to solve in 5 ~ 15 seconds. A `6-minute` timer is set for uploading the result this year.
@@ -61,4 +61,4 @@ You can relive the magic of the 2024 Hacker Cup World Finals by watching the [Li
 |C| [Chicken Tender](https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/C)| [Python3](./Final%20Round/chicken_tender.py3) | _O(N^2 * logR)_ | _O(N)_ | Medium | | Ternary Search, Geometry |
 |D| [Sushi Platter](https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/D)| | | | Medium | | |
 |E| [Snake Cover](https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/E)| | | | Medium | | |
-|F| [Pizza Broiler](https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/F)| | | | Hard | | |
+|F| [Pizza Broiler](https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/F)| [Python3](./Final%20Round/pizza_broiler.py3) | _O(R + NlogR)_ | _O(R + NlogR)_ | Hard | | Geometry, Binary Search, Prefix Sum, Count Lattices |
