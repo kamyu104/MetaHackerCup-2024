@@ -3,8 +3,8 @@
 # Meta Hacker Cup 2024 Final Round - Problem F. Pizza Broiler
 # https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/F
 #
-# Time:  O(R + NlogR)
-# Space: O(R)
+# Time:  O(W + NlogW), W = max(max(abs(x) for p in triangles for x, _ in p), R)
+# Space: O(W)
 #
 
 def binary_search_right(left, right, check):
