@@ -22,18 +22,20 @@ def ccw(a, b, c):
 def inner_product(a, b):
     return a[0]*b[0]+a[1]*b[1]
 
-def count_lattices(n, a, b, c):  # Time: O(logn)
-    # sum((a*i+b)//c for i in range(n+1))
+# modified template from: https://cp-algorithms.com/geometry/lattice_points.html
+def count_lattices(a, b, c, n):  # Time: O(logn)
+    # sum((a*i+b)//c for i in range(n))
     assert(n >= 0 and c > 0)
-    result = (a//c)*(n*(n+1)//2)+(b//c)*(n+1)
-    a -= c*(a//c)
-    b -= c*(b//c)
-    if not a:
-        return result
-    m = (a*n+b)//c
-    if m > 0:
-        result += n*m-count_lattices(m-1, c, c-b-1, a)
-    return result
+    fa = a//c
+    fb = b//c
+    cnt = (fa*(n-1)+2*fb)*n//2
+    a -= fa*c
+    b -= fb*c
+    t = a*n+b
+    ft = t//c
+    if ft >= 1:
+        cnt += count_lattices(c, t-c*ft, a, ft)
+    return cnt
 
 def pizza_broiler():
     def count(v):
@@ -62,7 +64,7 @@ def pizza_broiler():
             a, b, c = v2[1]-v1[1], v1[1]*(v2[0]-v1[0]), v2[0]-v1[0]
             left, right = v1[0], v2[0]
             right = binary_search_right(left, right, lambda x: (a*(x-v1[0])+b)**2 <= (R**2-x**2)*(c**2))
-            result = (prefix2[(right+w)+1]-prefix2[left+w])+count_lattices(right-left, a, b-exclude, c)
+            result = (prefix2[(right+w)+1]-prefix2[left+w])+count_lattices(a, b-exclude, c, right-left+1)
             if a*((right+1)-left)+b > 0:  # outer vertex is above circle
                 result += prefix1[(v2[0]+w)+1]-prefix1[(right+1)+w]
             return result
