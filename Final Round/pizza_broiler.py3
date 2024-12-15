@@ -31,7 +31,8 @@ def count_lattices(n, a, b, c):  # Time: O(logn)
     if not a:
         return result
     m = (a*n+b)//c
-    result += n*m-count_lattices(m-1, c, c-b-1, a)
+    if m > 0:
+        result += n*m-count_lattices(m-1, c, c-b-1, a)
     return result
 
 def pizza_broiler():
