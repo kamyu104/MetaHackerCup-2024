@@ -56,7 +56,7 @@ def pizza_broiler():
                 # line(v1, v2) is above circle
                 left, right = max(v1[0], -R), min(v2[0], R)
                 return max(prefix1[(right+w)+1]-prefix1[left+w], 0)
-            if inner_product(v1, v1) > R**2:  # make vertex v1 inside circle
+            if inner_product(v1, v1) > R**2:  # make v1 inside circle
                 v1, v2 = [-v2[0], v2[1]], [-v1[0], v1[1]]
             # y = (v2[1]-v1[1])/(v2[0]-v1[0])*(x-v1[0])+v1[1]
             # => (v2[0]-v1[0])*y =(v2[1]-v1[1])*(x-v1[0])+v1[1]*(v2[0]-v1[0])
