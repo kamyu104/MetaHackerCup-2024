@@ -25,15 +25,14 @@ def inner_product(a, b):
 # modified from template: https://cp-algorithms.com/geometry/lattice_points.html
 def count_lattices(a, b, c, n):  # sum((a*i+b)//c for i in range(n)), Time: O(logn)
     assert(n >= 1 and c >= 1)
-    fa = a//c
-    fb = b//c
-    cnt = (fa*(n-1)+2*fb)*n//2
-    a -= fa*c
-    b -= fb*c
-    t = a*n+b
-    ft = t//c
-    if ft >= 1:
-        cnt += count_lattices(c, t-ft*c, a, ft)
+    cnt = 0
+    while n >= 1:
+        fa, fb = a//c, b//c
+        cnt += (fa*(n-1)+2*fb)*n//2
+        a, b = a-fa*c, b-fb*c
+        t = a*n+b
+        n = t//c
+        a, b, c, n = c, t-n*c, a, n
     return cnt
 
 def pizza_broiler():
