@@ -22,19 +22,19 @@ def ccw(a, b, c):
 def inner_product(a, b):
     return a[0]*b[0]+a[1]*b[1]
 
-def pizza_broiler():
-    def count_lattices(n, a, b, c):  # Time: O(logn)
-        # sum((a*i+b)//c for i in range(n+1))
-        result = (a//c)*(n*(n+1)//2)+(b//c)*(n+1)
-        a -= c*(a//c)
-        b -= c*(b//c)
-        if not a:
-            result += b//c*(n+1)
-            return result
-        m = (a*n+b)//c
-        result += n*m-count_lattices(m-1, c, c-b-1, a)
+def count_lattices(n, a, b, c):  # Time: O(logn)
+    # sum((a*i+b)//c for i in range(n+1))
+    result = (a//c)*(n*(n+1)//2)+(b//c)*(n+1)
+    a -= c*(a//c)
+    b -= c*(b//c)
+    if not a:
+        result += b//c*(n+1)
         return result
+    m = (a*n+b)//c
+    result += n*m-count_lattices(m-1, c, c-b-1, a)
+    return result
 
+def pizza_broiler():
     def count(v):
         def count_under_line(v1, v2, exclude):
             if v1 > v2:
