@@ -28,7 +28,6 @@ def count_lattices(n, a, b, c):  # Time: O(logn)
     a -= c*(a//c)
     b -= c*(b//c)
     if not a:
-        result += b//c*(n+1)
         return result
     m = (a*n+b)//c
     result += n*m-count_lattices(m-1, c, c-b-1, a)
