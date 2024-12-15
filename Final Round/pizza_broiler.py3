@@ -3,7 +3,7 @@
 # Meta Hacker Cup 2024 Final Round - Problem F. Pizza Broiler
 # https://www.facebook.com/codingcompetitions/hacker-cup/2024/final-round/problems/F
 #
-# Time:  O(W + NlogW), W = max(max(abs(x) for p in triangles for x, _ in p), R)
+# Time:  O(W + NlogW), W = min(max(max(abs(x) for t in triangles for x, _ in t), R), max(max(abs(y) for t in triangles for _, y in t), R))
 # Space: O(W)
 #
 
@@ -78,7 +78,13 @@ def pizza_broiler():
     for _ in range(N):
         x1, y1, x2, y2, x3, y3 = list(map(int, input().split()))
         triangles.append([[x1, y1], [x2, y2], [x3, y3]])
-    w = max(max(abs(x) for p in triangles for x, _ in p), R)
+    w1 = max(max(abs(x) for t in triangles for x, _ in t), R)
+    w2 = max(max(abs(y) for t in triangles for _, y in t), R)
+    w = min(w1, w2)
+    if w1 > w2:
+        for t in triangles:
+            for v in t:
+                v[0], v[1] = v[1], v[0]
     f = [binary_search_right(0, R, lambda x: x**2 <= R**2-(i-w)**2) for i in range(2*w+1)]
     prefix1 = [0]*(len(f)+1)
     for i in range(len(f)):
