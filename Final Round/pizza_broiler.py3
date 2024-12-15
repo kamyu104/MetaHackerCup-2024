@@ -27,6 +27,7 @@ def inner_product(a, b):
 
 # modified template from :https://cp-algorithms.com/geometry/lattice-points.html
 def count_lattices(k, b, n):  # Time: O(logn)
+    # sum(floor(k*i+b) for i in range(n))
     fk = floor(k)
     fb = floor(b)
     cnt = (fk*(n-1)+2*fb)*n//2
