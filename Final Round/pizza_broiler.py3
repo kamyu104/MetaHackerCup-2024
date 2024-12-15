@@ -7,9 +7,6 @@
 # Space: O(W)
 #
 
-from fractions import Fraction
-from math import floor
-
 def binary_search_right(left, right, check):
     while left <= right:
         mid = left + (right-left)//2
@@ -25,19 +22,18 @@ def ccw(a, b, c):
 def inner_product(a, b):
     return a[0]*b[0]+a[1]*b[1]
 
-# modified template from :https://cp-algorithms.com/geometry/lattice-points.html
-def count_lattices(k, b, n):  # Time: O(logn)
-    # sum(floor(k*i+b) for i in range(n))
-    fk = floor(k)
-    fb = floor(b)
-    cnt = (fk*(n-1)+2*fb)*n//2
-    k -= fk
-    b -= fb
-    t = k*n+b
-    ft = floor(t)
-    if ft >= 1:
-        cnt += count_lattices(1/k, (t-ft)/k, ft)
-    return cnt
+def count_lattices(n, a, b, c):  # Time: O(logn)
+    # sum((a*i+b)//c for i in range(n+1))
+    assert(n >= 0 and c > 0)
+    result = (a//c)*(n*(n+1)//2)+(b//c)*(n+1)
+    a -= c*(a//c)
+    b -= c*(b//c)
+    if not a:
+        return result
+    m = (a*n+b)//c
+    if m > 0:
+        result += n*m-count_lattices(m-1, c, c-b-1, a)
+    return result
 
 def pizza_broiler():
     def count(v):
@@ -66,7 +62,7 @@ def pizza_broiler():
             a, b, c = v2[1]-v1[1], v1[1]*(v2[0]-v1[0]), v2[0]-v1[0]
             left, right = v1[0], v2[0]
             right = binary_search_right(left, right, lambda x: (a*(x-v1[0])+b)**2 <= (R**2-x**2)*(c**2))
-            result = (prefix2[(right+w)+1]-prefix2[left+w])+count_lattices(Fraction(a, c), Fraction(b-exclude, c), right-left+1)
+            result = (prefix2[(right+w)+1]-prefix2[left+w])+count_lattices(right-left, a, b-exclude, c)
             if a*((right+1)-left)+b > 0:  # outer vertex is above circle
                 result += prefix1[(v2[0]+w)+1]-prefix1[(right+1)+w]
             return result
