@@ -33,7 +33,7 @@ def count_lattices(a, b, c, n):  # sum((a*i+b)//c for i in range(n)), Time: O(lo
     t = a*n+b
     ft = t//c
     if ft >= 1:
-        cnt += count_lattices(c, t-c*ft, a, ft)
+        cnt += count_lattices(c, t-ft*c, a, ft)
     return cnt
 
 def pizza_broiler():
