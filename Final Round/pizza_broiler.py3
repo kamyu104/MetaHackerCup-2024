@@ -24,6 +24,7 @@ def inner_product(a, b):
 
 def count_lattices(n, a, b, c):  # Time: O(logn)
     # sum((a*i+b)//c for i in range(n+1))
+    assert(c > 0)
     result = (a//c)*(n*(n+1)//2)+(b//c)*(n+1)
     a -= c*(a//c)
     b -= c*(b//c)
