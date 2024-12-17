@@ -23,12 +23,14 @@ def sushi_platter():
         mx = 0
         if (nv := A[1]-A[0]) <= L:
             if nv >= (l := len(dp[1][1])):
-                mx = max(mx, nv)
+                if nv > mx:
+                    mx = nv
                 dp[1][1].extend((0 for _ in range((nv+1)-l)))
             dp[1][1][nv] = 2
         if (nv := 2*(A[1]-A[0])) <= L:
             if nv >= (l := len(dp[1][0])):
-                mx = max(mx, nv)
+                if nv > mx:
+                    mx = nv
                 dp[1][0].extend((0 for _ in range((nv+1)-l)))
             dp[1][0][nv] = 1
         for i in range(1, N):
@@ -41,27 +43,32 @@ def sushi_platter():
                             continue
                         if (nv := v+diff*(2*j-k+2)) <= L:  # creating a new connected component with a non-endpoint
                             if nv >= (l := len(new_dp[j+1][k])):
-                                mx = max(mx, nv)
+                                if nv > mx:
+                                    mx = nv
                                 new_dp[j+1][k].extend((0 for _ in range((nv+1)-l)))
                             new_dp[j+1][k][nv] = (new_dp[j+1][k][nv]+dp[j][k][v]) % MOD
-                        if (nv := v+diff*(2*j-k+1)) <= L and k <= 1:  # creating a new connected component with a endpoint
+                        if k <= 1 and (nv := v+diff*(2*j-k+1)) <= L:  # creating a new connected component with a endpoint
                             if nv >= (l := len(new_dp[j+1][k+1])):
-                                mx = max(mx, nv)
+                                if nv > mx:
+                                    mx = nv
                                 new_dp[j+1][k+1].extend((0 for _ in range((nv+1)-l)))
                             new_dp[j+1][k+1][nv] = (new_dp[j+1][k+1][nv]+dp[j][k][v]*(2-k)) % MOD
                         if (nv := v+diff*(2*j-k)) <= L:  # appending a non-endpoint to an existing connected component
                             if nv >= (l := len(new_dp[j][k])):
-                                mx = max(mx, nv)
+                                if nv > mx:
+                                    mx = nv
                                 new_dp[j][k].extend((0 for _ in range((nv+1)-l)))
                             new_dp[j][k][nv] = (new_dp[j][k][nv]+dp[j][k][v]*(2*j-k)) % MOD
-                        if (nv := v+diff*(2*j-k-1)) <= L and k <= 1 and 2*j-k-1 >= 1:  # appending a endpoint to an existing connected component.
+                        if k <= 1 and (c := 2*j-k-1) >= 1 and (nv := v+diff*c) <= L:  # appending a endpoint to an existing connected component.
                             if nv >= (l := len(new_dp[j][k+1])):
-                                mx = max(mx, nv)
+                                if nv > mx:
+                                    mx = nv
                                 new_dp[j][k+1].extend((0 for _ in range((nv+1)-l)))
                             new_dp[j][k+1][nv] = (new_dp[j][k+1][nv]+dp[j][k][v]*(2-k)*(j-k)) % MOD
-                        if (nv := v+diff*(2*j-k-2)) <= L and j >= 2 and 2*j-k-2 >= 1:  # merging connected components
+                        if j >= 2 and (c := 2*j-k-2) >= 1 and (nv := v+diff*c) <= L:  # merging connected components
                             if nv >= (l := len(new_dp[j-1][k])):
-                                mx = max(mx, nv)
+                                if nv > mx:
+                                    mx = nv
                                 new_dp[j-1][k].extend((0 for _ in range((nv+1)-l)))
                             new_dp[j-1][k][nv] = (new_dp[j-1][k][nv]+dp[j][k][v]*(j-k)*(j-1)) % MOD
             dp = new_dp
