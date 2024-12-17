@@ -8,6 +8,8 @@
 # Space: O(N^2 * MAX_A + M * min(L, N * MAX_A)
 #      = O(N^2 * MAX_A), if L >= N * MAX_A and N >= M
 #
+# pass in PyPy3 but Python3
+#
 
 from itertools import permutations
 
@@ -18,6 +20,7 @@ def sushi_platter():
     # reference: https://codeforces.com/blog/entry/45593
     # modified from template: https://ideone.com/bj9pm9
     def fill_A():
+        A.sort()
         dp = [[[] for _ in range(3)] for _ in range(N+1)]
         mx = 0
         if A[1]-A[0] <= L:
@@ -58,7 +61,7 @@ def sushi_platter():
                                 mx = max(mx, v+diff*(2*j-k+2))
                                 new_dp[j+1][k].extend((0 for _ in range(((v+diff*(2*j-k+2))+1)-len(new_dp[j+1][k]))))
                             new_dp[j+1][k][v+diff*(2*j-k+2)] = (new_dp[j+1][k][v+diff*(2*j-k+2)]+dp[j][k][v]) % MOD
-                        if v+diff*(2*j-k-2) <= L and j >= 2 and 2*j-k-2 >= 1: # merging connected components
+                        if v+diff*(2*j-k-2) <= L and j >= 2 and 2*j-k-2 >= 1:  # merging connected components
                             if not v+diff*(2*j-k-2) < len(new_dp[j-1][k]):
                                 mx = max(mx, v+diff*(2*j-k-2))
                                 new_dp[j-1][k].extend((0 for _ in range(((v+diff*(2*j-k-2))+1)-len(new_dp[j-1][k]))))
@@ -67,19 +70,19 @@ def sushi_platter():
         return dp, mx
 
     def fill_B():
+        B.sort()
         prefix = [[[0]*((min(L, mx)+1)+1) for _ in range(4)] for _ in range(min(M, len(dp))+1)]
         for cnt_B in range(1, len(prefix)):
-            for e in range(4):
+            for e in range((3 if cnt_B != 1 else 2)+1):
                 c = popcount(e)
                 cnt_A = cnt_B-1 if c == 2 else cnt_B if c == 1 else cnt_B+1
                 for i in range(min(L, mx)+1):
                     cnt = dp[cnt_A][2-c][i] if cnt_A < len(dp) and i < len(dp[cnt_A][2-c]) else 0
                     if e == 1 or e == 2:
-                        cnt = (INV_2*cnt) % MOD
-                    cnt *= FACT[cnt_B-1]
+                        cnt = (cnt*INV_2) % MOD
+                    cnt = (cnt*FACT[cnt_B-1]) % MOD
                     prefix[cnt_B][e][i+1] = (prefix[cnt_B][e][i]+cnt) % MOD
         result = 0
-        B.sort()
         for p in permutations(B):
             for mask in range(1<<(M-1)):
                 cnt_B = 1+popcount(mask)
@@ -91,14 +94,13 @@ def sushi_platter():
                             new_total += p[i]-(A[-1]+1)
                         if (i < M-1 and mask&(1<<i)) or (i == M-1 and e != 2 and e != 3):
                             new_total += p[i]-(A[-1]+1)
-                    if cnt_B < len(prefix) and min(L-new_total, mx) >= 0:
-                        result = (result+prefix[cnt_B][e][min(L-new_total, mx)+1]) % MOD
+                    if cnt_B < len(prefix) and (mn := min(L-new_total, mx)) >= 0:
+                        result = (result+prefix[cnt_B][e][mn+1]) % MOD
         return result
 
     N, M, L = list(map(int, input().split()))
     A = list(map(int, input().split()))
     B = list(map(int, input().split()))
-    A.sort()
     dp, mx = fill_A()
     return fill_B()
 
