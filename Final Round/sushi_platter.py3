@@ -53,7 +53,7 @@ def sushi_platter():
                                     mx = nv
                                 new_dp[j+1][k+1].extend((0 for _ in range((nv+1)-l)))
                             new_dp[j+1][k+1][nv] = (new_dp[j+1][k+1][nv]+dp[j][k][v]*(2-k)) % MOD
-                        if (nv := v+diff*(2*j-k)) <= L:  # appending a non-endpoint to an existing connected component
+                        if (c := 2*j-k) >= 1 and (nv := v+diff*c) <= L:  # appending a non-endpoint to an existing connected component
                             if nv >= (l := len(new_dp[j][k])):
                                 if nv > mx:
                                     mx = nv
