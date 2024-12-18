@@ -117,10 +117,10 @@ class Snake:
         self.down.trim_tail(min(s.y1, s.y2))
 
     def head(self):
-        return self.dq[0]
+        return self.dq[-1]
 
     def tail(self):
-        return self.dq[-1]
+        return self.dq[0]
 
     def dir(self):
         return self.d
@@ -159,11 +159,11 @@ class Snake:
         return (self.max_x()-self.min_x()+1)*(self.max_y()-self.min_y()+1)
 
     def push_head(self, s):
-        self.dq.appendleft(s)
+        self.dq.append(s)
         self.insert(s)
 
     def pop_tail(self):
-        self.dq.pop()
+        self.dq.popleft()
         self.erase()
 
     def extend_head(self, l):
