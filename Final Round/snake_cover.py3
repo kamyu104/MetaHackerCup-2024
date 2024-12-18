@@ -253,7 +253,7 @@ class Snake:
                         mid = (self.head().y1-self.tail().y2+1)//2
                     if mid <= relevant:
                         move(mid)
-                        continue
+                        break
                 if head_to_border <= relevant:
                     move(head_to_border)
                     break
