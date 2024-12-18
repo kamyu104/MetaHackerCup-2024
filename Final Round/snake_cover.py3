@@ -222,35 +222,36 @@ class Snake:
             return s.y2-mx2
         return 0
 
-    def slither(self, X):
+def snake_cover():
+    def f(X):
         def move(n):
             if n <= 0:
                 return
             n = min(n, cnt[0])
             while n:
-                trimmed = self.trim_tail(n)
-                self.extend_head(trimmed)
+                trimmed = snake.trim_tail(n)
+                snake.extend_head(trimmed)
                 n -= trimmed
                 cnt[0] -= trimmed
-                result[0] = min(result[0], self.min_area())
+                result[0] = min(result[0], snake.min_area())
 
         def phase1():
             while cnt[0]:
-                head_to_border = self.head_to_border_length()
+                head_to_border = snake.head_to_border_length()
                 if not head_to_border:
                     break
-                relevant = self.relevant_tail_length()
-                irrelevant = self.tail().length()-relevant-1
-                d = self.dir()
-                if relevant and d == (self.tail().dir()+2) % 4:
+                relevant = snake.relevant_tail_length()
+                irrelevant = snake.tail().length()-relevant-1
+                d = snake.dir()
+                if relevant and d == (snake.tail().dir()+2) % 4:
                     if d == RIGHT:
-                        mid = (self.tail().x2-self.head().x1+1)//2
+                        mid = (snake.tail().x2-snake.head().x1+1)//2
                     elif d == UP:
-                        mid = (self.tail().y2-self.head().y1+1)//2
+                        mid = (snake.tail().y2-snake.head().y1+1)//2
                     elif d == LEFT:
-                        mid = (self.head().x1-self.tail().x2+1)//2
+                        mid = (snake.head().x1-snake.tail().x2+1)//2
                     elif d == DOWN:
-                        mid = (self.head().y1-self.tail().y2+1)//2
+                        mid = (snake.head().y1-snake.tail().y2+1)//2
                     if mid <= relevant:
                         move(mid)
                         break
@@ -258,7 +259,7 @@ class Snake:
                     move(head_to_border)
                     break
                 move(relevant)
-                head_to_border = self.head_to_border_length()
+                head_to_border = snake.head_to_border_length()
                 if head_to_border <= irrelevant:
                     move(head_to_border)
                     break
@@ -266,8 +267,8 @@ class Snake:
 
         def phase2():
             while cnt[0]:
-                relevant = self.relevant_tail_length()
-                irrelevant = self.tail().length()-relevant-1
+                relevant = snake.relevant_tail_length()
+                irrelevant = snake.tail().length()-relevant-1
                 if relevant:
                     move(1)
                 move(relevant-1)
@@ -281,7 +282,6 @@ class Snake:
         phase2()
         return result[0]
 
-def snake_cover():
     N, M = list(map(int, input().split()))
     D_X = [list(input().split()) for _ in range(M)]
     snake = Snake(N)
@@ -292,7 +292,7 @@ def snake_cover():
             snake.turn_left()
         elif D == 'R':
             snake.turn_right()
-        result = (result+snake.slither(X)) % MOD
+        result = (result+f(X)) % MOD
     return result
 
 RIGHT, UP, LEFT, DOWN = list(range(4))
