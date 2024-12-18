@@ -244,14 +244,13 @@ class Snake:
                 d = self.dir()
                 if relevant and d == (self.tail().dir()+2) % 4:
                     if d == RIGHT:
-                        l = abs(self.head().x1-self.tail().x2)
+                        mid = (self.tail().x2-self.head().x1+1)//2
                     elif d == UP:
-                        l = abs(self.head().y1-self.tail().y2)
+                        mid = (self.tail().y2-self.head().y1+1)//2
                     elif d == LEFT:
-                        l = abs(self.head().x1-self.tail().x2)
+                        mid = (self.head().x1-self.tail().x2+1)//2
                     elif d == DOWN:
-                        l = abs(self.head().y1-self.tail().y2)
-                    mid = (l+1)//2
+                        mid = (self.head().y1-self.tail().y2+1)//2
                     if mid < relevant:
                         move(mid)
                         continue
