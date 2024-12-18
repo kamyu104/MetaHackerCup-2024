@@ -93,7 +93,7 @@ class Snake:
         self.down = MonoDeque(lambda a, b: a <= b)
         self.d = RIGHT
         self.dq = deque()
-        self.push_head(Segment(N, 1, 1, 1))
+        self.push_head(Segment(N-1, 0, 0, 0))
 
     def insert(self, s):
         self.right.push(max(s.x1, s.x2))
