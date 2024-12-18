@@ -300,7 +300,7 @@ def snake_cover():
         result = (result+f(X)) % MOD
     return result
 
-RIGHT, UP, LEFT, DOWN = list(range(4))
 MOD = 10**9+7
+RIGHT, UP, LEFT, DOWN = list(range(4))
 for case in range(int(input())):
     print('Case #%d: %s' % (case+1, snake_cover()))
