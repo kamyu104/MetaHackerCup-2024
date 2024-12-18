@@ -276,6 +276,8 @@ def snake_cover():
                 if irrelevant:
                     move(1)
                 move(irrelevant-1)
+                if len(snake.dq) == 1:
+                    break
 
         result = [float("inf")]
         cnt = [X]
