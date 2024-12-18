@@ -209,7 +209,7 @@ class Snake:
             return s.y1-self.min_y()
         return 0
 
-    def relevant_tail_len(self):
+    def relevant_tail_length(self):
         s = self.tail()
         d = s.dir()
         if d == RIGHT and s.x2 == self.min_x() and (mn2 := self.min2_x(s.x1)) > s.x2:
@@ -239,7 +239,7 @@ class Snake:
                 head_to_border = self.head_to_border_length()
                 if not head_to_border:
                     break
-                relevant = self.relevant_tail_len()
+                relevant = self.relevant_tail_length()
                 irrelevant = self.tail().length()-relevant-1
                 d = self.dir()
                 if relevant and d == (self.tail().dir()+2) % 4:
@@ -251,7 +251,7 @@ class Snake:
                         mid = (self.head().x1-self.tail().x2+1)//2
                     elif d == DOWN:
                         mid = (self.head().y1-self.tail().y2+1)//2
-                    if mid < relevant:
+                    if mid <= relevant:
                         move(mid)
                         continue
                 if head_to_border <= relevant:
@@ -266,7 +266,7 @@ class Snake:
 
         def phase2():
             while cnt[0]:
-                relevant = self.relevant_tail_len()
+                relevant = self.relevant_tail_length()
                 irrelevant = self.tail().length()-relevant-1
                 if relevant:
                     move(1)
