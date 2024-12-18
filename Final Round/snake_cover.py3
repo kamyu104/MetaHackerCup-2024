@@ -86,6 +86,7 @@ class Segment:
 
 class Snake:
     def __init__(self, N):
+        assert(N >= 3)
         self.right = MonoDeque(lambda a, b: a >= b)
         self.up = MonoDeque(lambda a, b: a >= b)
         self.left = MonoDeque(lambda a, b: a <= b)
