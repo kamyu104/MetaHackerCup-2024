@@ -222,7 +222,7 @@ class Snake:
             return s.y2-mx2
         return 0
 
-    def slither(self, cnt):
+    def slither(self, X):
         def move(n):
             if n <= 0:
                 return
@@ -276,6 +276,7 @@ class Snake:
                 move(irrelevant-1)
 
         result = [float("inf")]
+        cnt = [X]
         phase1()
         phase2()
         return result[0]
@@ -291,7 +292,7 @@ def snake_cover():
             snake.turn_left()
         elif D == 'R':
             snake.turn_right()
-        result = (result+snake.slither([X])) % MOD
+        result = (result+snake.slither(X)) % MOD
     return result
 
 RIGHT, UP, LEFT, DOWN = list(range(4))
