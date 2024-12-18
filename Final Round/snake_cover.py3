@@ -84,12 +84,12 @@ class Segment:
 
 class Snake:
     def __init__(self, N):
-        self.dq = deque()
         self.right = MonoDeque(lambda a, b: a >= b)
         self.up = MonoDeque(lambda a, b: a >= b)
         self.left = MonoDeque(lambda a, b: a <= b)
         self.down = MonoDeque(lambda a, b: a <= b)
         self.d = RIGHT
+        self.dq = deque()
         self.push_head(Segment(N, 1, 1, 1))
 
     def insert(self, s):
@@ -115,21 +115,6 @@ class Snake:
         self.up.trim_tail(max(s.y1, s.y2))
         self.left.trim_tail(min(s.x1, s.x2))
         self.down.trim_tail(min(s.y1, s.y2))
-
-    def head(self):
-        return self.dq[-1]
-
-    def tail(self):
-        return self.dq[0]
-
-    def dir(self):
-        return self.d
-
-    def turn_left(self):
-        self.d = (self.d+1) % 4
-
-    def turn_right(self):
-        self.d = (self.d-1) % 4
 
     def min_x(self):
         return self.left.top()
@@ -157,6 +142,21 @@ class Snake:
 
     def min_area(self):
         return (self.max_x()-self.min_x()+1)*(self.max_y()-self.min_y()+1)
+
+    def dir(self):
+        return self.d
+
+    def turn_left(self):
+        self.d = (self.d+1) % 4
+
+    def turn_right(self):
+        self.d = (self.d-1) % 4
+
+    def head(self):
+        return self.dq[-1]
+
+    def tail(self):
+        return self.dq[0]
 
     def push_head(self, s):
         self.dq.append(s)
