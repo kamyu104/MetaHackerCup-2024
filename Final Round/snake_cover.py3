@@ -284,8 +284,8 @@ def snake_cover():
 
     N, M = list(map(int, input().split()))
     D_X = [list(input().split()) for _ in range(M)]
-    if N == 1:
-        return M
+    if N <= 2:
+        return N*M
     snake = Snake(N)
     result = 0
     for D, X in D_X:
