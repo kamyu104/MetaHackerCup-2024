@@ -269,9 +269,8 @@ def snake_cover():
                     move(1)
                 move(irrelevant-1)
                 if len(snake.dq) == 1:
+                    result[0] = min(result[0], snake.min_area())
                     break
-            if len(snake.dq) == 1:
-                result[0] = min(result[0], snake.min_area())
 
         result = [float("inf")]
         cnt = [X]
