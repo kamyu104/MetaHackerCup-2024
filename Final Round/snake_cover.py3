@@ -269,13 +269,13 @@ def snake_cover():
                     move(1)
                 move(irrelevant-1)
                 if len(snake.dq) == 1:
-                    result[0] = min(result[0], snake.min_area())
                     break
 
         result = [float("inf")]
         cnt = [X]
         phase1()
         phase2()
+        result[0] = min(result[0], snake.min_area())  # case for N = 1
         return result[0]
 
     N, M = list(map(int, input().split()))
