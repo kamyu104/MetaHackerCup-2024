@@ -52,16 +52,13 @@ class Segment:
         self.y1 = y1
         self.x2 = x2
         self.y2 = y2
-        self.d = dir
+        self.dir = dir
 
     def length(self):
         return abs(self.x2-self.x1)+abs(self.y2-self.y1)+1
 
-    def dir(self):
-        return self.d
-
     def extend(self, l):
-        d = self.dir()
+        d = self.dir
         if d == RIGHT:
             self.x1 += l
         elif d == UP:
@@ -72,7 +69,7 @@ class Segment:
             self.y1 -= l
 
     def trim(self, l):
-        d = self.dir()
+        d = self.dir
         if d == RIGHT:
             self.x2 += l
         elif d == UP:
@@ -88,9 +85,9 @@ class Snake:
         self.up = MonoDeque(lambda a, b: a >= b)
         self.left = MonoDeque(lambda a, b: a <= b)
         self.down = MonoDeque(lambda a, b: a <= b)
-        self.d = RIGHT
+        self.dir = RIGHT
         self.dq = deque()
-        self.push_head(Segment(N-1, 0, 0, 0, self.d))
+        self.push_head(Segment(N-1, 0, 0, 0, self.dir))
 
     def insert(self, s):
         self.right.push(max(s.x1, s.x2))
@@ -143,14 +140,11 @@ class Snake:
     def min_area(self):
         return (self.max_x()-self.min_x()+1)*(self.max_y()-self.min_y()+1)
 
-    def dir(self):
-        return self.d
-
     def turn_left(self):
-        self.d = (self.d+1) % 4
+        self.dir = (self.dir+1) % 4
 
     def turn_right(self):
-        self.d = (self.d-1) % 4
+        self.dir = (self.dir-1) % 4
 
     def head(self):
         return self.dq[-1]
@@ -167,10 +161,10 @@ class Snake:
         self.erase()
 
     def extend_head(self, l):
-        d = self.dir()
+        d = self.dir
         if self.dq:
             s = self.head()
-            if d == s.dir():
+            if d == s.dir:
                 s.extend(l)
                 self.extend(s)
                 return
@@ -197,7 +191,7 @@ class Snake:
 
     def head_to_border_length(self):
         s = self.head()
-        d = self.dir()
+        d = self.dir
         if d == RIGHT:
             return self.max_x()-s.x1
         if d == UP:
@@ -210,7 +204,7 @@ class Snake:
 
     def relevant_tail_length(self):
         s = self.tail()
-        d = s.dir()
+        d = s.dir
         if d == RIGHT and s.x2 == self.min_x() and (mn2 := self.min2_x(s.x1)) > s.x2:
             return mn2-s.x2
         if d == UP and s.y2 == self.min_y() and (mn2 := self.min2_y(s.y1)) > s.y2:
@@ -241,8 +235,8 @@ def snake_cover():
                     break
                 relevant = snake.relevant_tail_length()
                 irrelevant = snake.tail().length()-relevant-1
-                d = snake.dir()
-                if relevant and d == (snake.tail().dir()+2) % 4:
+                d = snake.dir
+                if relevant and d == (snake.tail().dir+2) % 4:
                     if d == RIGHT:
                         mid = (snake.tail().x2-snake.head().x1+1)//2
                     elif d == UP:
