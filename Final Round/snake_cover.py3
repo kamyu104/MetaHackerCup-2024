@@ -47,20 +47,18 @@ class MonoDeque:
             self.dq.popleft()
 
 class Segment:
-    def __init__(self, x1, y1, x2, y2):
+    def __init__(self, x1, y1, x2, y2, dir):
         self.x1 = x1
         self.y1 = y1
         self.x2 = x2
         self.y2 = y2
+        self.d = dir
 
     def length(self):
         return abs(self.x2-self.x1)+abs(self.y2-self.y1)+1
 
     def dir(self):
-        if self.x1 == self.x2:
-            return UP if self.y1 > self.y2 else DOWN
-        if self.y1 == self.y2:
-            return RIGHT if self.x1 > self.x2 else LEFT
+        return self.d
 
     def extend(self, l):
         d = self.dir()
@@ -86,14 +84,13 @@ class Segment:
 
 class Snake:
     def __init__(self, N):
-        assert(N >= 3)
         self.right = MonoDeque(lambda a, b: a >= b)
         self.up = MonoDeque(lambda a, b: a >= b)
         self.left = MonoDeque(lambda a, b: a <= b)
         self.down = MonoDeque(lambda a, b: a <= b)
         self.d = RIGHT
         self.dq = deque()
-        self.push_head(Segment(N-1, 0, 0, 0))
+        self.push_head(Segment(N-1, 0, 0, 0, self.d))
 
     def insert(self, s):
         self.right.push(max(s.x1, s.x2))
@@ -170,13 +167,14 @@ class Snake:
         self.erase()
 
     def extend_head(self, l):
-        s = self.head()
         d = self.dir()
-        if d == s.dir():
-            s.extend(l)
-            self.extend(s)
-            return
-        new_s = Segment(s.x1, s.y1, s.x1, s.y1)
+        if self.dq:
+            s = self.head()
+            if d == s.dir():
+                s.extend(l)
+                self.extend(s)
+                return
+        new_s = Segment(s.x1, s.y1, s.x1, s.y1, d) if self.dq else Segment(0, 0, 0, 0, d)
         if d == RIGHT:
             new_s.x1 += l
         elif d == UP:
@@ -278,6 +276,8 @@ def snake_cover():
                 move(irrelevant-1)
                 if len(snake.dq) == 1:
                     break
+            if len(snake.dq) == 1:
+                result[0] = min(result[0], snake.min_area())
 
         result = [float("inf")]
         cnt = [X]
@@ -287,8 +287,6 @@ def snake_cover():
 
     N, M = list(map(int, input().split()))
     D_X = [list(input().split()) for _ in range(M)]
-    if N <= 2:
-        return N*M
     snake = Snake(N)
     result = 0
     for D, X in D_X:
